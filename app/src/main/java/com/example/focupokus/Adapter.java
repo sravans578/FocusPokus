@@ -12,6 +12,8 @@ public class Adapter extends BaseAdapter {
     Context con;
     int[] shapes;
 
+
+
     public Adapter(Context con, int [] a){
         this.con = con;
         this.shapes = a;
@@ -28,7 +30,7 @@ public class Adapter extends BaseAdapter {
     }
 
     @Override
-    public long get ItemId(int position) {
+    public long getItemId(int position) {
         return 0;
     }
 
@@ -37,8 +39,8 @@ public class Adapter extends BaseAdapter {
         ImageView shape = new ImageView(con);
 
         shape.setImageResource(shapes[position]);
-        shape.setScaleType(ImageView, ImageView.ScaleType.CENTER_CROP);
-        shape.setLayoutParams(new GridView.LayoutParams(115,115));
+        shape.setScaleType( ImageView.ScaleType.CENTER_CROP);
+        shape.setLayoutParams(new GridView.LayoutParams(500,500));
         return shape;
 
     }
