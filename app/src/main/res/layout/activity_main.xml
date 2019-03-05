@@ -21,6 +21,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/et"
             android:gravity="center"/>
+         <TextView
+             android:id="@+id/checkRandom"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:text="Random : " />
  </LinearLayout>
         <GridView
             android:id="@+id/hello"
