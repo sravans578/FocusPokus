@@ -1,5 +1,6 @@
 package com.example.focupokus;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,8 +52,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
+        Button round;
+        round = (Button)findViewById(R.id.rou);
+        round.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Round Button clicked!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }
