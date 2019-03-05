@@ -100,8 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         //get target object
         int target = new Random().nextInt(shapeSet.size());
-        
-        Log.i("target",);
+
     }
 }
 
