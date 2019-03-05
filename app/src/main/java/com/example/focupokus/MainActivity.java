@@ -1,6 +1,7 @@
 package com.example.focupokus;
 
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         final String sc =et.getText().toString();
 
         Adapter adapter = new Adapter(this, shapes);
@@ -47,11 +49,23 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes[position]),Toast.LENGTH_LONG).show();
                 tv.setText(getResources().getResourceEntryName(shapes[position]));
 
+                new CountDownTimer(10000, 1000) {
 
+                    public void onTick(long millisUntilFinished) {
+                        et.setText("seconds remaining: " + millisUntilFinished / 1000);
+                    }
+
+                    public void onFinish() {
+                        et.setText("Better luck next time !!!!!!!");
+                    }
+                }.start();
 
             }
         });
 
 
     }
+
+
+
 }
