@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     int shapes[] ={R.drawable.circle,R.drawable.cone,R.drawable.cylinder,R.drawable.hexagon,R.drawable.rectangle};
     GridView grid;
     TextView tv;
-    EditText et;
+    TextView et;
     public int score =0;
     public String hi= "clicked!";
     @Override

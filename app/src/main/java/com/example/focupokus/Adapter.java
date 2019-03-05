@@ -12,13 +12,11 @@ public class Adapter extends BaseAdapter {
     Context con;
     int[] shapes;
 
-
-
     public Adapter(Context con, int [] a){
         this.con = con;
         this.shapes = a;
-
     }
+
     @Override
     public int getCount() {
         return shapes.length;
