@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         //tv = findViewById(R.id.textView);
         //et = findViewById(R.id.et);
         //checkRandom = findViewById(R.id.checkRandom);
-        grid.setNumColumns(4);
+        grid.setNumColumns(3);
         tv=findViewById(R.id.textView);
         et=findViewById(R.id.et);
 
