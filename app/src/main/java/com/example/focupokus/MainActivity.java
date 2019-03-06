@@ -1,5 +1,8 @@
 package com.example.focupokus;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.media.Image;
 
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +15,11 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
+import android.widget.ImageView;
+import java.util.logging.Logger;
+import java.util.Random;
+import java.util.*;
 import android.widget.Button;
 
 import org.json.JSONArray;
@@ -27,8 +35,13 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
+<<<<<<< HEAD
     int shapes[] = {R.drawable.circle, R.drawable.cone, R.drawable.cylinder, R.drawable.hexagon, R.drawable.rectangle};
     int colors[] = {R.color.colorPrimary,R.color.colorAccent,R.color.colorPrimaryDark,R.color.colorYellow};
+=======
+    //int shapes[] ={R.drawable.circle,R.drawable.cone,R.drawable.cylinder,R.drawable.hexagon,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star,R.drawable.ic_star};
+
+
 
     GridView grid;
     TextView tv;
@@ -45,24 +58,35 @@ public class MainActivity extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         grid = findViewById(R.id.hello);
-        tv = findViewById(R.id.textView);
-        et = findViewById(R.id.et);
+        //tv = findViewById(R.id.textView);
+        //et = findViewById(R.id.et);
         //checkRandom = findViewById(R.id.checkRandom);
+        grid.setNumColumns(4);
+        tv=findViewById(R.id.textView);
+        et=findViewById(R.id.et);
 
 
         final String sc = et.getText().toString();
 
 
-        Adapter adapter = new Adapter(this, shapes);
+        //Adapter adapter = new Adapter(this, shapes);
+
+        final String sc =et.getText().toString();
+        getRandomShape1();
+        getRandomShapewithcolour();
+        final Adapter adapter = new Adapter(this,hm);
         grid.setAdapter(adapter);
+
+
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> s, View v, int position, long id) {
 
                 //if(getResources().getResourceEntryName(shapes[position]).equals(sc)) score++;
-                //Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes[position]),Toast.LENGTH_LONG).show();
-                tv.setText(getResources().getResourceEntryName(shapes[position]));
+                Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes1[position]),Toast.LENGTH_LONG).show();
+                long i = grid.getItemIdAtPosition(position);
+                tv.setText(getResources().getResourceEntryName(shapes1[position]));
 
                 new CountDownTimer(10000, 1000) {
 
