@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         final CountDownTimer timer = new CountDownTimer(10000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                et.setText("seconds remaining: " + millisUntilFinished / 1000 + " :" + millisUntilFinished/100);
+                et.setText("Time remaining: " + millisUntilFinished / 1000 );
             }
 
             public void onFinish() {
