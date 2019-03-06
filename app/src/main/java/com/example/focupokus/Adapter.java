@@ -38,6 +38,7 @@ public class Adapter extends BaseAdapter {
 
         shape.setImageResource(shapes[position]);
         shape.setScaleType( ImageView.ScaleType.CENTER_CROP);
+        shape.setHapticFeedbackEnabled(true);
         shape.setLayoutParams(new GridView.LayoutParams(500,500));
         return shape;
 
