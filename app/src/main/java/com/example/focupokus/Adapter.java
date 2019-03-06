@@ -1,45 +1,65 @@
 package com.example.focupokus;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.graphics.ColorUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import java.util.*;
+import java.util.HashMap;
+import java.util.Random;
 
 public class Adapter extends BaseAdapter {
 
     Context con;
-    int[] shapes;
+    ArrayList<Integer> gridShapes;
+    ArrayList<Integer> gridColors;
 
-    public Adapter(Context con, int [] a){
+
+    public Adapter(Context con, ArrayList<Integer> gridShapes, ArrayList<Integer> gridColors) {
         this.con = con;
-        this.shapes = a;
+        this.gridShapes = gridShapes;
+        this.gridColors = gridColors;
     }
 
     @Override
-    public int getCount() {
-        return shapes.length;
+    public int getCount() {//return gridShapes.size();
+        return gridColors.size(); }
+
+    @Override
+    public Object getItem(int position)
+    {
+        return gridShapes.get(position);
     }
 
     @Override
-    public Object getItem(int position) {
-        return shapes[position];
-    }
-
-    @Override
-    public long getItemId(int position) {
+    public long getItemId(int position)
+    {
         return 0;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView shape = new ImageView(con);
+        Log.i("----Shape",""+gridShapes.get(position));
+//        Log.i("----Color",""+gridColors);
 
-        shape.setImageResource(shapes[position]);
-        shape.setScaleType( ImageView.ScaleType.CENTER_CROP);
-        shape.setLayoutParams(new GridView.LayoutParams(500,500));
+        Log.i("color","color"+gridColors.get(position));
+
+        shape.setImageResource(gridShapes.get(position));
+        shape.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        shape.setColorFilter(gridColors.get(position));
+
+        shape.setLayoutParams(new GridView.LayoutParams(160,160));
+
         return shape;
 
     }
+
+
 }
+
