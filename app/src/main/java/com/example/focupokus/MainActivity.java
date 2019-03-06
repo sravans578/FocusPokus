@@ -1,5 +1,7 @@
 package com.example.focupokus;
 
+
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,10 +9,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Button;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -30,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
     GridView grid;
     TextView tv;
-    EditText et;
     TextView checkRandom;
-
+    TextView et;
+    public int score =0;
+    public String hi= "clicked!";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         final String sc = et.getText().toString();
+
 
         Adapter adapter = new Adapter(this, shapes);
         grid.setAdapter(adapter);
@@ -91,29 +95,40 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+                new CountDownTimer(10000, 1000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        et.setText("seconds remaining: " + millisUntilFinished / 1000);
+                    }
+
+                    public void onFinish() {
+                        et.setText("Better luck next time !!!!!!!");
+                    }
+                }.start();
+        });
+
         int target = new Random().nextInt(shapeSet.size());
         ArrayList<Object> list = new ArrayList<Object>(shapeSet);
         Log.i("----Target---",""+list.get(target));
-
-
-        ArrayList<Integer> shapeResult = new ArrayList<Integer>();
+        
+	ArrayList<Integer> shapeResult = new ArrayList<Integer>();
         ArrayList<Integer> colorResult = new ArrayList<Integer>();
         Iterator itr = shapeSet.iterator();
-        while(itr.hasNext()){
-            try{
-                JSONObject obj = (JSONObject) itr.next();
-                shapeResult.add(obj.getInt("shape"));
-                colorResult.add(obj.getInt("color"));
-            }
-            catch(Exception e){
+	while(itr.hasNext()){
+		try{
+			JSONObject obj = (JSONObject) itr.next();
+			shapeResult.add(obj.getInt("shape"));
+			colorResult.add(obj.getInt("color"));
+		}
+		catch(Exception e){
+		}
 
-            }
+	}
 
         }
         Log.i("Shapes",""+shapeResult);
         Log.i("Colors",""+colorResult);
 
-    }
 }
 
 
