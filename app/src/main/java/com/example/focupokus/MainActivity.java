@@ -12,9 +12,13 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -22,6 +26,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 
     int shapes[] = {R.drawable.circle, R.drawable.cone, R.drawable.cylinder, R.drawable.hexagon, R.drawable.rectangle};
+    int colors[] = {R.drawable.circle, R.drawable.cone, R.drawable.cylinder, R.drawable.hexagon, R.drawable.rectangle};
     String sampleText = "Hello";
     String shapesToSelect[] = {
             "Circle1", "Square1", "Triangle1",
@@ -79,27 +84,71 @@ public class MainActivity extends AppCompatActivity {
 //        checkRandom.setText(rg.getSample());
 
 
-        /**
-         * random generator with arrays
-         */
-        ArrayList<String> combinations = new ArrayList<String>();
-        for (int i = 0; i < colorsToSelect.length; i++) {
-            for (int j = 0; j < shapesToSelect.length; j++) {
-                combinations.add(colorsToSelect[i] + " " + shapesToSelect[j]);
+//        /**
+//         * random generator with arrays
+//         */
+//        ArrayList<String> combinations = new ArrayList<String>();
+//        for (int i = 0; i < colorsToSelect.length; i++) {
+//            for (int j = 0; j < shapesToSelect.length; j++) {
+//                combinations.add(colorsToSelect[i] + " " + shapesToSelect[j]);
+//            }
+//        }
+//
+//        //get 9 random shapes
+//        Set<String> shapeSet = new HashSet<String>();
+//        int random;
+//        while(shapeSet.size()!=9){
+//            random = new Random().nextInt(combinations.size());
+//            shapeSet.add(combinations.get(random));
+//        }
+//        Log.i("hello",shapeSet.toString());
+//
+//        //get target object
+//        int target = new Random().nextInt(shapeSet.size());
+
+        JSONArray ja = new JSONArray();
+        try {
+        for (int k = 0; k < shapes.length; k++) {
+            for (int j = 0; j < colors.length; j++) {
+                JSONObject jo = new JSONObject();
+                jo.put("shape", k);
+                jo.put("color", j);
+                ja.put(jo);
             }
         }
+        } catch (Exception e) {
+            Log.e("Error",e.getMessage());
+        }
+
 
         //get 9 random shapes
-        Set<String> shapeSet = new HashSet<String>();
+        Set<Object> shapeSet = new HashSet<Object>();
         int random;
-        while(shapeSet.size()!=9){
-            random = new Random().nextInt(combinations.size());
-            shapeSet.add(combinations.get(random));
-        }
-        Log.i("hello",shapeSet.toString());
+        while (shapeSet.size() != 9) {
+            try{
+                random = new Random().nextInt(ja.length());
+                shapeSet.add(ja.get(random));
+//                Log.i("",""+random);
+            }
+            catch(Exception e){
 
-        //get target object
-        int target = new Random().nextInt(shapeSet.size());
+            }
+
+        }
+//        Log.i("Hello",""+shapeSet);
+        int shapeResult[] = {};
+        int colorResult[] = {};
+        Iterator itr = shapeSet.iterator();
+        while(itr.hasNext()){
+            try{
+                JSONObject obj = (JSONObject) itr.next();
+            }
+            catch(Exception e){
+
+            }
+
+        }
     }
 }
+
 
