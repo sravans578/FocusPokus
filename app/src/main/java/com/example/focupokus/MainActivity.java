@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         grid = findViewById(R.id.hello);
         tv = findViewById(R.id.textView);
         et = findViewById(R.id.et);
-        checkRandom = findViewById(R.id.checkRandom);
+        //checkRandom = findViewById(R.id.checkRandom);
 
 
         final String sc = et.getText().toString();
@@ -63,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
                 //if(getResources().getResourceEntryName(shapes[position]).equals(sc)) score++;
                 //Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes[position]),Toast.LENGTH_LONG).show();
                 tv.setText(getResources().getResourceEntryName(shapes[position]));
+
+                new CountDownTimer(10000, 1000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        et.setText("seconds remaining: " + millisUntilFinished / 1000);
+                    }
+
+                    public void onFinish() {
+                        et.setText("Better luck next time !!!!!!!");
+                    }
+                }.start();
             }
         });
 
@@ -95,17 +106,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-                new CountDownTimer(10000, 1000) {
-
-                    public void onTick(long millisUntilFinished) {
-                        et.setText("seconds remaining: " + millisUntilFinished / 1000);
-                    }
-
-                    public void onFinish() {
-                        et.setText("Better luck next time !!!!!!!");
-                    }
-                }.start();
-        });
 
         int target = new Random().nextInt(shapeSet.size());
         ArrayList<Object> list = new ArrayList<Object>(shapeSet);
@@ -125,10 +125,10 @@ public class MainActivity extends AppCompatActivity {
 
 	}
 
-        }
+
         Log.i("Shapes",""+shapeResult);
         Log.i("Colors",""+colorResult);
-
+}
 }
 
 
