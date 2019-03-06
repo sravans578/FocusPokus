@@ -33,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
         tv=findViewById(R.id.textView);
         et=findViewById(R.id.et);
 
+        final CountDownTimer timer = new CountDownTimer(10000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                et.setText("Time remaining: " + millisUntilFinished / 1000 );
+            }
+
+            public void onFinish() {
+                et.setText("Better luck next time !!!!!!!");
+            }
+        };
+
 
 
 
@@ -47,18 +58,9 @@ public class MainActivity extends AppCompatActivity {
 
                 //if(getResources().getResourceEntryName(shapes[position]).equals(sc)) score++;
                 //Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes[position]),Toast.LENGTH_LONG).show();
-                tv.setText(getResources().getResourceEntryName(shapes[position]));
+                //tv.setText(getResources().getResourceEntryName(shapes[position]));
+                timer.start();
 
-                new CountDownTimer(10000, 1000) {
-
-                    public void onTick(long millisUntilFinished) {
-                        et.setText("seconds remaining: " + millisUntilFinished / 1000);
-                    }
-
-                    public void onFinish() {
-                        et.setText("Better luck next time !!!!!!!");
-                    }
-                }.start();
 
             }
         });
