@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="300dp"
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="115dp">
+
+        <TextView
+            android:id="@+id/tvSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Settings"
+            android:layout_gravity="center_horizontal"/>
+
+        <Button
+            android:id="@+id/howButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to play"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="288dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="80dp"/>
+
+    <Button
+        android:id="@+id/soundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How to play"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="288dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="80dp"/>
+
+    </LinearLayout>

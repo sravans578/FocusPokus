@@ -23,4 +23,9 @@ public class start extends AppCompatActivity {
         Intent play = new Intent(this, MainActivity.class);
         startActivity(play);
     }
+
+    public void settings()
+    {
+
+    }
 }
