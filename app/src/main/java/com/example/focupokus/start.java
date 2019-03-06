@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -26,8 +27,8 @@ public class start extends AppCompatActivity {
             public void onClick(View v)
             {
                 Dialog dialog = new Dialog(start.this);
-                dialog.setContentView(R.layout.activity_settings);
 
+                dialog.setContentView(R.layout.activity_settings);
                 dialog.show();
             }
         });

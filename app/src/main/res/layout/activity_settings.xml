@@ -24,7 +24,6 @@
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/dispLayout"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -32,7 +31,6 @@
         android:layout_margin="60dp">
 
         <LinearLayout
-            android:id="@+id/soundLayout"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -92,8 +90,10 @@
             android:textSize="20dp"
             android:background="@drawable/howtoplaybutton"
             android:layout_gravity="center_horizontal"
-            />
+            android:onClick="displayRules"/>
         </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
+
+
