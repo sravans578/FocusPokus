@@ -16,35 +16,24 @@ import java.util.Random;
 public class Adapter extends BaseAdapter {
 
     Context con;
-    static HashMap<Integer,Integer> hashMap=new HashMap<Integer,Integer>();
-    //int[] shapes;
-    static int shapes[]={R.drawable.ic_circle,R.drawable.ic_pointed_star,R.drawable.ic_arrow_down_filled_triangle,R.drawable.ic_diamond,R.drawable.ic_hexagon};
+    ArrayList<Integer> gridShapes;
+    ArrayList<Integer> gridColors;
 
 
-    //int shapes1[]={R.drawable.ic_circle,R.drawable.ic_pointed_star,R.drawable.ic_arrow_down_filled_triangle,R.drawable.ic_diamond,R.drawable.ic_hexagon};
-
-
-
-
-    public Adapter(Context con, HashMap<Integer,Integer> m)
-    {
+    public Adapter(Context con, ArrayList<Integer> gridShapes, ArrayList<Integer> gridColors) {
         this.con = con;
-        this.hashMap = m;
-
-//    public Adapter(Context con, int [] a){
-//        this.con = con;
-//        this.shapes = a;
+        this.gridShapes = gridShapes;
+        this.gridColors = gridColors;
     }
 
     @Override
-    public int getCount() {
-        return shapes.length;
-    }
+    public int getCount() {//return gridShapes.size();
+        return gridColors.size(); }
 
     @Override
     public Object getItem(int position)
     {
-        return shapes[position];
+        return gridShapes.get(position);
     }
 
     @Override
@@ -56,39 +45,19 @@ public class Adapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView shape = new ImageView(con);
-        Integer i =getRandomShape();
-        //shape.setImageResource(i);
-        shape.setImageResource(shapes[position]);
-       //shape.setTag(Integer.valueOf(position));
+        Log.i("----Shape",""+gridShapes.get(position));
+//        Log.i("----Color",""+gridColors);
 
+        Log.i("color","color"+gridColors.get(position));
+
+        shape.setImageResource(gridShapes.get(position));
         shape.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        //shape.setColorFilter(Color.parseColor(l));
+        shape.setColorFilter(gridColors.get(position));
 
-        shape.setColorFilter(getRandomColor());
-        Log.d("hello","hi"+position);
-
-
-
-        shape.setLayoutParams(new GridView.LayoutParams(169,169));
+        shape.setLayoutParams(new GridView.LayoutParams(160,160));
 
         return shape;
 
-    }
-
-    public static Integer getRandomColor()
-    {
-        Integer [] colour={Color.GREEN,Color.RED,Color.YELLOW,Color.BLUE,Color.CYAN, Color.MAGENTA,Color.LTGRAY,Color.BLACK};
-        int rnd = new Random().nextInt(colour.length);
-        Log.d("colour","colour"+rnd);
-        return colour[rnd];
-    }
-
-    public static Integer getRandomShape()
-    {
-        //int shapes[]={R.drawable.ic_circle,R.drawable.ic_pointed_star,R.drawable.ic_arrow_down_filled_triangle,R.drawable.ic_diamond,R.drawable.ic_hexagon,R.drawable.ic_circle};
-        int rnd = new Random().nextInt(shapes.length);
-        Log.d("shape","shape"+rnd);
-        return shapes[rnd];
     }
 
 
