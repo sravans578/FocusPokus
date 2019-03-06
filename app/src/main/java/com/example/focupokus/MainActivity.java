@@ -26,30 +26,12 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 
     int shapes[] = {R.drawable.circle, R.drawable.cone, R.drawable.cylinder, R.drawable.hexagon, R.drawable.rectangle};
-    int colors[] = {R.drawable.circle, R.drawable.cone, R.drawable.cylinder, R.drawable.hexagon, R.drawable.rectangle};
-    String sampleText = "Hello";
-    String shapesToSelect[] = {
-            "Circle1", "Square1", "Triangle1",
-            "Circle2", "Square2", "Triangle2",
-            "Circle3", "Square3", "Triangle3",
-            "Circle4", "Square4", "Triangle4",
-            "Circle5", "Square5", "Triangle5",
-            "Circle6", "Square6", "Triangle6",
-    };
-    String colorsToSelect[] = {
-            "Red1", "Yellow1", "Blue1",
-            "Red2", "Yellow2", "Blue2",
-            "Red3", "Yellow3", "Blue3",
-            "Red4", "Yellow4", "Blue4",
-            "Red5", "Yellow5", "Blue5",
-            "Red6", "Yellow6", "Blue6",
-    };
+    int colors[] = {R.color.colorPrimary,R.color.colorAccent,R.color.colorPrimaryDark,R.color.colorYellow};
+
     GridView grid;
     TextView tv;
     EditText et;
     TextView checkRandom;
-    public int score = 0;
-    public String hi = "clicked!";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,32 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 tv.setText(getResources().getResourceEntryName(shapes[position]));
             }
         });
-//        RandomGenerator rg = new RandomGenerator(this,sampleText);
-//        Log.i("Hello",rg.getSample());
-//        checkRandom.setText(rg.getSample());
-
-
-//        /**
-//         * random generator with arrays
-//         */
-//        ArrayList<String> combinations = new ArrayList<String>();
-//        for (int i = 0; i < colorsToSelect.length; i++) {
-//            for (int j = 0; j < shapesToSelect.length; j++) {
-//                combinations.add(colorsToSelect[i] + " " + shapesToSelect[j]);
-//            }
-//        }
-//
-//        //get 9 random shapes
-//        Set<String> shapeSet = new HashSet<String>();
-//        int random;
-//        while(shapeSet.size()!=9){
-//            random = new Random().nextInt(combinations.size());
-//            shapeSet.add(combinations.get(random));
-//        }
-//        Log.i("hello",shapeSet.toString());
-//
-//        //get target object
-//        int target = new Random().nextInt(shapeSet.size());
 
         JSONArray ja = new JSONArray();
         try {
@@ -135,19 +91,28 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-//        Log.i("Hello",""+shapeSet);
-        int shapeResult[] = {};
-        int colorResult[] = {};
+        int target = new Random().nextInt(shapeSet.size());
+        ArrayList<Object> list = new ArrayList<Object>(shapeSet);
+        Log.i("----Target---",""+list.get(target));
+
+
+        ArrayList<Integer> shapeResult = new ArrayList<Integer>();
+        ArrayList<Integer> colorResult = new ArrayList<Integer>();
         Iterator itr = shapeSet.iterator();
         while(itr.hasNext()){
             try{
                 JSONObject obj = (JSONObject) itr.next();
+                shapeResult.add(obj.getInt("shape"));
+                colorResult.add(obj.getInt("color"));
             }
             catch(Exception e){
 
             }
 
         }
+        Log.i("Shapes",""+shapeResult);
+        Log.i("Colors",""+colorResult);
+
     }
 }
 
