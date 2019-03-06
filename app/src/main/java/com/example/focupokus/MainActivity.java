@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         tv=findViewById(R.id.textView);
         et=findViewById(R.id.et);
 
-
-
         final String sc =et.getText().toString();
 
         Adapter adapter = new Adapter(this, shapes);
@@ -46,12 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 //if(getResources().getResourceEntryName(shapes[position]).equals(sc)) score++;
                 //Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes[position]),Toast.LENGTH_LONG).show();
                 tv.setText(getResources().getResourceEntryName(shapes[position]));
-
-
-
-            }
+             }
         });
-
-
     }
 }
