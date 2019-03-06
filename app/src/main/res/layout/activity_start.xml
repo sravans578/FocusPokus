@@ -16,7 +16,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/rou"
+        android:id="@+id/playButton"
         android:layout_width="256dp"
         android:layout_height="67dp"
         android:layout_marginTop="238dp"
@@ -31,8 +31,9 @@
         app:layout_constraintRight_toRightOf="parent"
         android:onClick="play"
         app:layout_constraintTop_toBottomOf="@+id/rect" />
+
     <Button
-        android:id="@+id/rou"
+        android:id="@+id/settingsButton"
         android:layout_width="256dp"
         android:layout_height="67dp"
         android:layout_marginTop="338dp"
@@ -48,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/rect" />
 
     <Button
-        android:id="@+id/rou"
+        android:id="@+id/quitButton"
         android:layout_width="256dp"
         android:layout_height="67dp"
         android:layout_marginTop="438dp"

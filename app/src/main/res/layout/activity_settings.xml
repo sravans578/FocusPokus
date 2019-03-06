@@ -1,39 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="300dp"
-        android:layout_height="500dp"
+        android:id="@+id/settingsLayout"
+        android:layout_width="250dp"
+        android:layout_height="300dp"
         android:orientation="vertical"
+        android:background="#FFC0CB"
         tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="115dp">
+        tools:layout_editor_absoluteY="115dp"
+        tools:context=".start">
 
-        <TextView
-            android:id="@+id/tvSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Settings"
-            android:layout_gravity="center_horizontal"/>
-
-        <Button
-            android:id="@+id/howButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="How to play"
-            tools:layout_editor_absoluteX="161dp"
-            tools:layout_editor_absoluteY="288dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="80dp"/>
-
-    <Button
-        android:id="@+id/soundButton"
+    <TextView
+        android:id="@+id/tvSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="How to play"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="288dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="45dp"
+        android:text="Settings"
+        android:fontFamily="@font/spring"
+        android:layout_gravity="center_horizontal"/>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dispLayout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="80dp"/>
+        android:layout_margin="60dp">
+
+        <LinearLayout
+            android:id="@+id/soundLayout"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sound"
+                android:textSize="30dp"
+                android:textColor="#800000"
+                android:fontFamily="@font/spring"
+                android:layout_weight="0.9"/>
+
+            <Switch
+                android:id="@+id/soundSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spring"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vibration"
+                android:textSize="30dp"
+                android:textColor="#800000"
+                android:fontFamily="@font/spring"
+                android:layout_weight="0.9"/>
+
+            <Switch
+                android:id="@+id/vibrateSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spring"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/rulesButton"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="How to play"
+            android:fontFamily="@font/spring"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:background="@drawable/howtoplaybutton"
+            android:layout_gravity="center_horizontal"
+            />
+        </LinearLayout>
 
     </LinearLayout>
+</LinearLayout>
