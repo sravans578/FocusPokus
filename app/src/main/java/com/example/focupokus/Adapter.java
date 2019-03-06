@@ -31,7 +31,11 @@ public class Adapter extends BaseAdapter {
         this.con = con;
         this.hashMap = m;
 
+//    public Adapter(Context con, int [] a){
+//        this.con = con;
+//        this.shapes = a;
     }
+
     @Override
     public int getCount() {
         return shapes.length;

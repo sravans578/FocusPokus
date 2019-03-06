@@ -3,13 +3,14 @@ package com.example.focupokus;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.media.Image;
+
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import android.widget.ImageView;
 import java.util.logging.Logger;
 import java.util.Random;
 import java.util.*;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,7 +66,7 @@ static HashMap<Integer,Integer> hm=new HashMap<Integer,Integer>();
 
     GridView grid;
     TextView tv;
-    EditText et;
+    TextView et;
     public int score =0;
     public String hi= "clicked!";
     @Override
@@ -79,6 +81,7 @@ static HashMap<Integer,Integer> hm=new HashMap<Integer,Integer>();
         grid.setNumColumns(4);
         tv=findViewById(R.id.textView);
         et=findViewById(R.id.et);
+
 
 
 
@@ -100,10 +103,21 @@ static HashMap<Integer,Integer> hm=new HashMap<Integer,Integer>();
                 long i = grid.getItemIdAtPosition(position);
                 tv.setText(getResources().getResourceEntryName(shapes1[position]));
 
+                new CountDownTimer(10000, 1000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        et.setText("seconds remaining: " + millisUntilFinished / 1000);
+                    }
+
+                    public void onFinish() {
+                        et.setText("Better luck next time !!!!!!!");
+                    }
+                }.start();
+
             }
         });
-
-
-
     }
+
+
+
 }
