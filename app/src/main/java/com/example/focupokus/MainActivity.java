@@ -116,7 +116,17 @@ public class MainActivity extends AppCompatActivity {
         Log.i("---------",""+shapeResult);
 
         final ArrayList<JSONObject> list;
-        final int target = new Random().nextInt(shapeSet.size());
+        final int target;
+        try{
+            target = new Random().nextInt(shapeSet.size());
+            list = new ArrayList<>(shapeSet);
+            Log.i("",""+list.get(target).getInt("shape"));
+
+        }
+        catch(Exception e){
+
+        }
+
 
 
         final Adapter adapter = new Adapter(this,shapeResult,colorResult);
