@@ -38,20 +38,18 @@ import java.util.Random;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
-
-	int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
-	//int colors[] = {R.color.colorPrimary,R.color.colorAccent,R.color.colorPrimaryDark,R.color.colorYellow};
-	int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
+int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
+    int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
 
-	ArrayList<Integer> shapeResult = new ArrayList<Integer>();
-	ArrayList<Integer> colorResult = new ArrayList<Integer>();
-	GridView grid;
-	TextView tv;
-	TextView checkRandom;
-	TextView et;
-	public int score =0;
-	public String hi= "clicked!";
+    ArrayList<Integer> shapeResult = new ArrayList<Integer>();
+    ArrayList<Integer> colorResult = new ArrayList<Integer>();
+    GridView grid;
+    ImageView targetView;
+    TextView tv;
+    TextView et;
+    public int score =0;
+    public String hi= "clicked!";
 	MediaPlayer correctsound;
 	MediaPlayer mediaPlayer;
 	MediaPlayer wrongSound;
@@ -59,21 +57,21 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-	@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-			this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-					WindowManager.LayoutParams.FLAG_FULLSCREEN);
-			this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-			setContentView(R.layout.activity_main);
-			grid = findViewById(R.id.hello);
-			//tv = findViewById(R.id.textView);
-			//et = findViewById(R.id.et);
-			//checkRandom = findViewById(R.id.checkRandom);
-			grid.setNumColumns(3);
-			tv=findViewById(R.id.textView);
-			et=findViewById(R.id.et);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_main);
+        grid = findViewById(R.id.hello);
+        //tv = findViewById(R.id.textView);
+        //et = findViewById(R.id.et);
+        targetView = findViewById(R.id.targetView);
+        grid.setNumColumns(3);
+        tv=findViewById(R.id.textView);
+        et=findViewById(R.id.et);
 
 			mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
 			mediaPlayer.setLooping(true);
@@ -86,80 +84,89 @@ public class MainActivity extends AppCompatActivity {
 			//Adapter adapter = new Adapter(this, shapes);
 			//grid.setAdapter(adapter);
 			grid.setHapticFeedbackEnabled(true);
-			final CountDownTimer timer = new CountDownTimer(10000, 1000) {
+        final CountDownTimer timer = new CountDownTimer(10000, 1000) {
 
-				public void onTick(long millisUntilFinished) {
-					et.setText("Time remaining: " + millisUntilFinished / 1000 );
-				}
+            public void onTick(long millisUntilFinished) {
+                et.setText("Time remaining: " + millisUntilFinished / 1000 );
+            }
 
-				public void onFinish() {
+            public void onFinish() {
 					et.setText("Better luck next time!");
-				}
-			};
+            }
+        };
 
 
-
-			JSONArray ja = new JSONArray();
-			try {
-				for (int k = 0; k < shapes.length; k++) {
-					for (int j = 0; j < colors.length; j++) {
-						JSONObject jo = new JSONObject();
-						jo.put("shape", shapes[k]);
-						jo.put("color", colors[j]);
-						ja.put(jo);
-					}
-				}
-			} catch (Exception e) {
-				Log.e("Error",e.getMessage());
-			}
-
-
-			//get 9 random shapes
-			Set<JSONObject> shapeSet = new HashSet<>();
-			int random;
-			while (shapeSet.size() != 9) {
-				try{
-					random = new Random().nextInt(ja.length());
-					shapeSet.add(ja.getJSONObject(random));
-					Log.i("Shapeset------------",""+shapeSet);
-				}
-				catch(Exception e){
-
-				}
-
-			}
-
-			int target = new Random().nextInt(shapeSet.size());
-			ArrayList<Object> list = new ArrayList<Object>(shapeSet);
-			//        Log.i("----Target---",""+list.get(target));
+        JSONArray ja = new JSONArray();
+        try {
+            for (int k = 0; k < shapes.length; k++) {
+                for (int j = 0; j < colors.length; j++) {
+                    JSONObject jo = new JSONObject();
+                    jo.put("shape", shapes[k]);
+                    jo.put("color", colors[j]);
+                    ja.put(jo);
+                }
+            }
+        } catch (Exception e) {
+            Log.e("Error",e.getMessage());
+        }
 
 
-			Iterator itr = shapeSet.iterator();
-			while(itr.hasNext()) {
-				try {
-					JSONObject obj = (JSONObject) itr.next();
-					shapeResult.add(obj.getInt("shape")); //array of integers
-					colorResult.add(obj.getInt("color"));
-				} catch (Exception e) {
-				}
-			}
-			Log.i("---------",""+shapeResult);
+        //get 9 random shapes
+        Set<JSONObject> shapeSet = new HashSet<>();
+        int random;
+        while (shapeSet.size() != 9) {
+            try{
+                random = new Random().nextInt(ja.length());
+                shapeSet.add(ja.getJSONObject(random));
+            }
+            catch(Exception e){
+
+            }
+
+        }
+
+        Iterator itr = shapeSet.iterator();
+        while(itr.hasNext()) {
+            try {
+                JSONObject obj = (JSONObject) itr.next();
+                shapeResult.add(obj.getInt("shape")); //array of integers
+                colorResult.add(obj.getInt("color"));
+            } catch (Exception e) {
+            }
+        }
+        Log.i("---------",""+shapeResult);
+
+        final ArrayList<JSONObject> list;
+        final int target;
+        try{
+            target = new Random().nextInt(shapeSet.size());
+            list = new ArrayList<>(shapeSet);
+            targetView.setImageResource(list.get(target).getInt("shape"));
+            targetView.setColorFilter(list.get(target).getInt("color"));
+
+        }
+        catch(Exception e){
+
+        }
 
 
-
-			final Adapter adapter = new Adapter(this,shapeResult,colorResult);
-			grid.setAdapter(adapter);
-			grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> s, View v, int position, long id) {
+        final Adapter adapter = new Adapter(this,shapeResult,colorResult);
+        grid.setAdapter(adapter);
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> s, View v, int position, long id) {
 						String score_1 = "Score : " + score ;
 						tv.setText(score_1);
 						score++;
 						timer.start();
 
-					v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+						v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 					getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
+                //if(getResources().getResourceEntryName(shapes[position]).equals(sc)) score++;
+//                Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes[position]),Toast.LENGTH_LONG).show();
+//                long i = grid.getItemIdAtPosition(position);
+//                Log.i("--------------",""+shapeResult);
+                tv.setText(getResources().getResourceEntryName(shapeResult.get(position)));
 
 					if(correctsound!=null )
 					{
@@ -190,12 +197,11 @@ public class MainActivity extends AppCompatActivity {
 					//                Log.i("--------------",""+shapeResult);
 					//tv.setText(getResources().getResourceEntryName(shapeResult.get(position)));
 
+                    
 
 
-
-					}
-
-			});
+            }
+        });
 
 		}
 	@Override
@@ -206,5 +212,4 @@ public class MainActivity extends AppCompatActivity {
 
 		}
 }
-
 

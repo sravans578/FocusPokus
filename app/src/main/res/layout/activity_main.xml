@@ -20,7 +20,6 @@
         android:textColor="@color/colorYellow"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         />
-
     <TextView
         android:id="@+id/et"
         android:layout_width="wrap_content"
@@ -33,6 +32,11 @@
         android:textColor="@color/colorYellow"
         android:textSize="30sp"
         android:visibility="visible"/>
+    <ImageView
+        android:id="@+id/targetView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp" />
 
 
 </LinearLayout>
@@ -46,7 +50,7 @@
         android:id="@+id/hello"
         android:numColumns="auto_fit"
         android:gravity="center"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="170dp"
         android:layout_marginBottom="30dp"
         android:clipToPadding="false"
         android:padding="16dp"
