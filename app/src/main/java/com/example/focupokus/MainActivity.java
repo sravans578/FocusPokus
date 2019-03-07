@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
 					//                Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes[position]),Toast.LENGTH_LONG).show();
 					//                long i = grid.getItemIdAtPosition(position);
 					//                Log.i("--------------",""+shapeResult);
-					tv.setText(getResources().getResourceEntryName(shapeResult.get(position)));
+					//tv.setText(getResources().getResourceEntryName(shapeResult.get(position)));
 
 
 
