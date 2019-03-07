@@ -120,7 +120,8 @@ public class MainActivity extends AppCompatActivity {
         try{
             target = new Random().nextInt(shapeSet.size());
             list = new ArrayList<>(shapeSet);
-            Log.i("",""+list.get(target).getInt("shape"));
+            targetView.setImageResource(list.get(target).getInt("shape"));
+            targetView.setColorFilter(list.get(target).getInt("color"));
 
         }
         catch(Exception e){
