@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 				}
 
 				public void onFinish() {
-					et.setText("Better luck next time !!!!!!!");
+					et.setText("Better luck next time!");
 				}
 			};
 
@@ -153,6 +153,9 @@ public class MainActivity extends AppCompatActivity {
 
 					@Override
 					public void onItemClick(AdapterView<?> s, View v, int position, long id) {
+						String score_1 = "Score : " + score ;
+						tv.setText(score_1);
+						score++;
 						timer.start();
 
 					v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
