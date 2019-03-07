@@ -54,6 +54,7 @@ int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexag
 	MediaPlayer mediaPlayer;
 	MediaPlayer wrongSound;
 	private Vibrator myVib;
+	public int random;
 
 
 
@@ -113,7 +114,7 @@ int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexag
 
         //get 9 random shapes
         Set<JSONObject> shapeSet = new HashSet<>();
-        int random;
+//        final int random;
         while (shapeSet.size() != 9) {
             try{
                 random = new Random().nextInt(ja.length());
@@ -140,6 +141,7 @@ int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexag
         final int target;
         try{
             target = new Random().nextInt(shapeSet.size());
+            random = target;
             list = new ArrayList<>(shapeSet);
             targetView.setImageResource(list.get(target).getInt("shape"));
             targetView.setColorFilter(list.get(target).getInt("color"));
@@ -155,16 +157,27 @@ int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexag
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> s, View v, int position, long id) {
-						String score_1 = "Score : " + score ;
-						score++;
-						timer.start();
 
-						v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+
+                            String match = shapeResult.get(random).toString()+ colorResult.get(random).toString();
+                            String to_match = shapeResult.get(position).toString()+ colorResult.get(position).toString();
+
+                            if (match.equals(to_match)) {
+                                score++;
+
+                            }
+                String score_1 = "Score : " + score;
+                            timer.start();
+
+
+
+                v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 					getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
                 //if(getResources().getResourceEntryName(shapes[position]).equals(sc)) score++;
 //                Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes[position]),Toast.LENGTH_LONG).show();
 //                long i = grid.getItemIdAtPosition(position);
 //                Log.i("--------------",""+shapeResult);
+                //tv.setText(getResources().getResourceEntryName(shapeResult.get(position)));
                 tv.setText(score_1);
 
 					if(correctsound!=null )
