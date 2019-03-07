@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Integer> shapeResult = new ArrayList<Integer>();
     ArrayList<Integer> colorResult = new ArrayList<Integer>();
     GridView grid;
+    ImageView targetView;
     TextView tv;
     TextView et;
     public int score =0;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         grid = findViewById(R.id.hello);
         //tv = findViewById(R.id.textView);
         //et = findViewById(R.id.et);
-        //checkRandom = findViewById(R.id.checkRandom);
+        targetView = findViewById(R.id.targetView);
         grid.setNumColumns(3);
         tv=findViewById(R.id.textView);
         et=findViewById(R.id.et);
@@ -97,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
             try{
                 random = new Random().nextInt(ja.length());
                 shapeSet.add(ja.getJSONObject(random));
-//                Log.i("Shapeset------------",""+shapeSet);
             }
             catch(Exception e){
 
