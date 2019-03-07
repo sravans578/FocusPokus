@@ -156,7 +156,6 @@ int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexag
             @Override
             public void onItemClick(AdapterView<?> s, View v, int position, long id) {
 						String score_1 = "Score : " + score ;
-						tv.setText(score_1);
 						score++;
 						timer.start();
 
@@ -166,7 +165,7 @@ int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexag
 //                Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes[position]),Toast.LENGTH_LONG).show();
 //                long i = grid.getItemIdAtPosition(position);
 //                Log.i("--------------",""+shapeResult);
-                tv.setText(getResources().getResourceEntryName(shapeResult.get(position)));
+                tv.setText(score_1);
 
 					if(correctsound!=null )
 					{

@@ -20,13 +20,14 @@
         android:textColor="@color/colorYellow"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         />
+</LinearLayout>
     <TextView
         android:id="@+id/et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/grinchedregular"
         android:gravity="center_vertical"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="60dp"
         android:text="Tap to Start!"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/colorYellow"
@@ -36,10 +37,8 @@
         android:id="@+id/targetView"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp" />
 
-
-</LinearLayout>
+        android:layout_marginTop="50dp" />
 
 
 
@@ -50,7 +49,7 @@
         android:id="@+id/hello"
         android:numColumns="auto_fit"
         android:gravity="center"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="200dp"
         android:layout_marginBottom="30dp"
         android:clipToPadding="false"
         android:padding="16dp"
