@@ -1,5 +1,6 @@
 package com.example.focupokus;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -12,11 +13,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.os.Vibrator;
 
 public class start extends AppCompatActivity {
-    Button round;
+    Button playButton, settingsButton,rulesButton;
     private Vibrator myVib;
     private View myView;
     MediaPlayer correctsound;
@@ -30,15 +32,20 @@ public class start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         myVib = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
 
-        round = findViewById(R.id.rou);
-        round.setHapticFeedbackEnabled(true);
-        View view = findViewById(R.id.rou);
-        view.performHapticFeedback(HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
-        getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
-        myView = (View) this.findViewById(R.id.rou);
+        playButton = findViewById(R.id.playButton);
+        settingsButton = findViewById(R.id.settingsButton);
+        rulesButton = findViewById(R.id.rulesButton);
 
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Dialog dialog = new Dialog(start.this);
 
-
+                dialog.setContentView(R.layout.activity_settings);
+                dialog.show();
+            }
+        });
     }
 
     public void play (View view) {
@@ -46,6 +53,13 @@ public class start extends AppCompatActivity {
         Log.d("hello","hi"+myVib.hasVibrator());
         Intent play = new Intent(this, MainActivity.class);
         startActivity(play);
+    }
+    
+    public void displayRules(View v)
+    {
+        Dialog dialog = new Dialog(start.this);
+        dialog.setContentView(R.layout.activity_settings);
+        dialog.show();
     }
 
     public void exit (View view) {
@@ -66,6 +80,5 @@ public class start extends AppCompatActivity {
                 });
         AlertDialog alertDialog = ex.create();
         alertDialog.show();
-//
     }
 }
