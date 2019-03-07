@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 				}
 
 				public void onFinish() {
-					et.setText("Better luck next time !!!!!!!");
+					et.setText("Better luck next time!");
 				}
 			};
 
@@ -153,6 +153,10 @@ public class MainActivity extends AppCompatActivity {
 
 					@Override
 					public void onItemClick(AdapterView<?> s, View v, int position, long id) {
+						String score_1 = "Score : " + score ;
+						tv.setText(score_1);
+						score++;
+						timer.start();
 
 					v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 					getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
@@ -178,24 +182,14 @@ public class MainActivity extends AppCompatActivity {
 						wrongSound.start();
 					}
 					v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-					tv.setText(getResources().getResourceEntryName(shapes[position]));
+					//tv.setText(getResources().getResourceEntryName(shapes[position]));
 					myVib.vibrate(200);
 					//if(getResources().getResourceEntryName(shapes[position]).equals(sc)) score++;
 					//                Toast.makeText(getApplicationContext(),getResources().getResourceEntryName(shapes[position]),Toast.LENGTH_LONG).show();
 					//                long i = grid.getItemIdAtPosition(position);
 					//                Log.i("--------------",""+shapeResult);
-					tv.setText(getResources().getResourceEntryName(shapeResult.get(position)));
+					//tv.setText(getResources().getResourceEntryName(shapeResult.get(position)));
 
-					new CountDownTimer(10000, 1000) {
-
-						public void onTick(long millisUntilFinished) {
-							et.setText("seconds remaining: " + millisUntilFinished / 1000);
-						}
-
-						public void onFinish() {
-							et.setText("Better luck next time !!!!!!!");
-						}
-					}.start();
 
 
 
