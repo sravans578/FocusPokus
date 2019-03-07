@@ -36,7 +36,6 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 
     int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
-    //int colors[] = {R.color.colorPrimary,R.color.colorAccent,R.color.colorPrimaryDark,R.color.colorYellow};
     int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
 
@@ -116,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
         }
         Log.i("---------",""+shapeResult);
 
+        final ArrayList<JSONObject> list;
+        final int target = new Random().nextInt(shapeSet.size());
 
 
         final Adapter adapter = new Adapter(this,shapeResult,colorResult);
