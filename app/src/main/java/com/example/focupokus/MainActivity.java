@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Integer> colorResult = new ArrayList<Integer>();
     GridView grid;
     TextView tv;
-    TextView checkRandom;
     TextView et;
     public int score =0;
     public String hi= "clicked!";
@@ -63,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         grid.setNumColumns(3);
         tv=findViewById(R.id.textView);
         et=findViewById(R.id.et);
-
         final CountDownTimer timer = new CountDownTimer(10000, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -99,18 +97,13 @@ public class MainActivity extends AppCompatActivity {
             try{
                 random = new Random().nextInt(ja.length());
                 shapeSet.add(ja.getJSONObject(random));
-                Log.i("Shapeset------------",""+shapeSet);
+//                Log.i("Shapeset------------",""+shapeSet);
             }
             catch(Exception e){
 
             }
 
         }
-
-        int target = new Random().nextInt(shapeSet.size());
-        ArrayList<Object> list = new ArrayList<Object>(shapeSet);
-//        Log.i("----Target---",""+list.get(target));
-
 
         Iterator itr = shapeSet.iterator();
         while(itr.hasNext()) {
