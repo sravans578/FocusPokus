@@ -20,8 +20,6 @@ import android.os.Vibrator;
 public class start extends AppCompatActivity {
     Button playButton, settingsButton,rulesButton;
     private Vibrator myVib;
-    private View myView;
-    MediaPlayer correctsound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
