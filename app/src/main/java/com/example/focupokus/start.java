@@ -52,7 +52,7 @@ public class start extends AppCompatActivity {
         Intent play = new Intent(this, MainActivity.class);
         startActivity(play);
     }
-    
+
     public void displayRules(View v)
     {
         Dialog dialog = new Dialog(start.this);
@@ -64,7 +64,7 @@ public class start extends AppCompatActivity {
 
         AlertDialog.Builder ex = new AlertDialog.Builder(this);
         ex.setMessage(" Are you sure that you want to exit ? ")
-            .setCancelable(false).setPositiveButton("YaY", new DialogInterface.OnClickListener() {
+                .setCancelable(false).setPositiveButton("YaY", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
@@ -73,7 +73,7 @@ public class start extends AppCompatActivity {
                 .setNegativeButton("NaY", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                     dialog.cancel();
+                        dialog.cancel();
                     }
                 });
         AlertDialog alertDialog = ex.create();
