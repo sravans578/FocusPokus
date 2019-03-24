@@ -27,7 +27,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import android.app.Dialog;
-
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
 int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
@@ -50,10 +51,10 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 	public int random;
 	public int attempts_remaining;
     public JSONArray ja = new JSONArray();
-
-
-
-
+    private SharedPreferences mPreference;
+    private SharedPreferences.Editor meditor;
+    private boolean isMusic;
+    private boolean isVibrate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,9 +75,15 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
         mediaPlayer.setLooping(true);
-        boolean ismusic=true;
-			if(ismusic) {
-				mediaPlayer.start();}
+        mPreference= PreferenceManager.getDefaultSharedPreferences(this);
+        isMusic= mPreference.getBoolean("soundSwitchValue",true);
+
+        isVibrate= mPreference.getBoolean("vibrateSwitchValue",true);
+
+			if(isMusic)
+			{
+				mediaPlayer.start();
+			}
 				myVib = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
 			grid.setHapticFeedbackEnabled(true);
         final CountDownTimer timer = new CountDownTimer(10000, 1000) {
@@ -150,7 +157,11 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                                 getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
                                 v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-                                myVib.vibrate(200);
+                                if(isVibrate)
+                                {
+                                    myVib.vibrate(200);
+                                }
+
 
                             }
                             String score_1 = "Score : " + score;

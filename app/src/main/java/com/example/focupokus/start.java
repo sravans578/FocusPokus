@@ -34,14 +34,12 @@ public class start extends AppCompatActivity {
         settingsButton = findViewById(R.id.settingsButton);
         rulesButton = findViewById(R.id.rulesButton);
 
+        final  Setting s= new Setting();
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Dialog dialog = new Dialog(start.this);
-
-                dialog.setContentView(R.layout.activity_settings);
-                dialog.show();
+                s.show(getSupportFragmentManager(),"setting");
             }
         });
     }
@@ -52,13 +50,9 @@ public class start extends AppCompatActivity {
         Intent play = new Intent(this, MainActivity.class);
         startActivity(play);
     }
-    
-    public void displayRules(View v)
-    {
-        Dialog dialog = new Dialog(start.this);
-        dialog.setContentView(R.layout.activity_settings);
-        dialog.show();
-    }
+
+
+
 
     public void exit (View view) {
 
