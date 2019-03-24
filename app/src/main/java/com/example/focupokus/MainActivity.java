@@ -1,9 +1,7 @@
 package com.example.focupokus;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Vibrator;
 import android.os.CountDownTimer;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,9 +14,8 @@ import android.widget.TextView;
 import android.media.MediaPlayer;
 import android.view.HapticFeedbackConstants;
 import android.widget.Toast;
-import android.util.Log;
 import android.widget.ImageView;
-import java.util.logging.Logger;
+
 import java.util.Random;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,10 +23,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import android.app.Dialog;
 
 
 public class MainActivity extends AppCompatActivity {
+//defining shapes for the grid
 int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
 int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
@@ -38,17 +35,16 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
     ArrayList<Integer> colorResult = new ArrayList<Integer>();
     GridView grid;
     ImageView targetView;
-    TextView tv;
+    TextView textView;
     TextView et;
     TextView atr;
     public int score =0;
-    public String hi= "clicked!";
-	MediaPlayer correctsound;
+	MediaPlayer correctSound;
 	MediaPlayer mediaPlayer;
 	MediaPlayer wrongSound;
-	private Vibrator myVib;
+	private Vibrator vibrateEffect;
 	public int random;
-	public int attempts_remaining;
+	public int attemptsRemaining;
     public JSONArray ja = new JSONArray();
 
 
@@ -58,18 +54,19 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        attempts_remaining = 3;
+        attemptsRemaining = 3;
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+        //defining grid
         grid = findViewById(R.id.hello);
         targetView = findViewById(R.id.targetView);
         grid.setNumColumns(3);
-        tv=findViewById(R.id.textView);
+        textView =findViewById(R.id.textView);
         et=findViewById(R.id.et);
         atr=findViewById(R.id.atr);
-
 
 
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
@@ -77,7 +74,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
         boolean ismusic=true;
 			if(ismusic) {
 				mediaPlayer.start();}
-				myVib = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
+				vibrateEffect = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
 			grid.setHapticFeedbackEnabled(true);
         final CountDownTimer timer = new CountDownTimer(10000, 1000) {
 
@@ -86,12 +83,12 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
             }
 
             public void onFinish() {
-                if (attempts_remaining == 0 ) {
-                    attempts_remaining = 3;
+                if (attemptsRemaining == 0 ) {
+                    attemptsRemaining = 3;
                     et.setText("Better luck next time!");}
                 else
-                { attempts_remaining --;
-                atr.setText("Attempts remaining : " + attempts_remaining);
+                { attemptsRemaining--;
+                atr.setText("Attempts remaining : " + attemptsRemaining);
                 this.start();
                     ;
 					}
@@ -121,10 +118,10 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
             @Override
             public void onItemClick(AdapterView<?> s, View v, int position, long id) {
 
-                atr.setText("Attempts remaining : " + (attempts_remaining-1));
+                atr.setText("Attempts remaining : " + (attemptsRemaining -1));
                 timer.start();
 
-                correctsound = MediaPlayer.create(MainActivity.this, R.raw.correctanstune);
+                correctSound = MediaPlayer.create(MainActivity.this, R.raw.correctanstune);
                 wrongSound = MediaPlayer.create(MainActivity.this, R.raw.wronanstune);
 
 
@@ -133,7 +130,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
                             if (match.equals(to_match)) {
                                 score++;
-                                correctsound.start();
+                                correctSound.start();
                                 grid.setAdapter(null);
                                 shapeResult.clear();
                                 colorResult.clear();
@@ -143,19 +140,19 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                             }
                             else
                             {wrongSound.start();
-                                attempts_remaining = (attempts_remaining) - 1;
-                                if(attempts_remaining == 0)
+                                attemptsRemaining = (attemptsRemaining) - 1;
+                                if(attemptsRemaining == 0)
                                 {timer.onFinish();}
-                            Toast.makeText(getApplicationContext()," " + attempts_remaining,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext()," " + attemptsRemaining,Toast.LENGTH_LONG).show();
                                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                                 getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
                                 v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-                                myVib.vibrate(200);
+                                vibrateEffect.vibrate(200);
 
                             }
                             String score_1 = "Score : " + score;
 
-                            tv.setText(score_1);
+                            textView.setText(score_1);
 
 
 
