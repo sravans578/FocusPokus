@@ -90,7 +90,6 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                 { attemptsRemaining--;
                 atr.setText("Attempts remaining : " + attemptsRemaining);
                 this.start();
-                    ;
 					}
             }
         };
