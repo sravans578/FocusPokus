@@ -45,7 +45,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 	private Vibrator vibrateEffect;
 	public int random;
 	public int attemptsRemaining;
-    public JSONArray ja = new JSONArray();
+    public JSONArray jsonArrayShapeColor = new JSONArray();
 
 
 
@@ -94,21 +94,21 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
             }
         };
 
-
+        //creating json array of shapes and colors
         try {
-            for (int k = 0; k < shapes.length; k++) {
-                for (int j = 0; j < colors.length; j++) {
-                    JSONObject jo = new JSONObject();
-                    jo.put("shape", shapes[k]);
-                    jo.put("color", colors[j]);
-                    ja.put(jo);
+            for (int kIndex = 0; kIndex < shapes.length; kIndex++) {
+                for (int jIndex = 0; jIndex < colors.length; jIndex++) {
+                    JSONObject objShapeColor = new JSONObject();
+                    objShapeColor.put("shape", shapes[kIndex]);
+                    objShapeColor.put("color", colors[jIndex]);
+                    jsonArrayShapeColor.put(objShapeColor);
                 }
             }
         } catch (Exception e) {
             Log.e("Error",e.getMessage());
         }
 
-        onRandomShape(ja);
+        onRandomShape(jsonArrayShapeColor);
 
 
         final Adapter adapter = new Adapter(this,shapeResult,colorResult);
@@ -133,7 +133,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                                 grid.setAdapter(null);
                                 shapeResult.clear();
                                 colorResult.clear();
-                                onRandomShape(ja);
+                                onRandomShape(jsonArrayShapeColor);
                                 grid.setAdapter(adapter);
 
                             }
