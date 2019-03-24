@@ -71,8 +71,8 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
         mediaPlayer.setLooping(true);
-        boolean ismusic=true;
-			if(ismusic) {
+        boolean isMusic=true;
+			if(isMusic) {
 				mediaPlayer.start();}
 				vibrateEffect = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
 			grid.setHapticFeedbackEnabled(true);
@@ -172,13 +172,15 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
         try {
             //Set for 9 unique objects
             Set<JSONObject> shapeSet = new HashSet<>();
-//        final int random;
+
+            //random generator logic
             while (shapeSet.size() != 9) {
                 random = new Random().nextInt(arrayShapeColor.length());
                 shapeSet.add(arrayShapeColor.getJSONObject(random));
 
             }
 
+            //iterator to iterate through unique objects from random
             Iterator itr = shapeSet.iterator();
             while (itr.hasNext()) {
                 JSONObject obj = (JSONObject) itr.next();
@@ -190,6 +192,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
             final ArrayList<JSONObject> list;
             final int target;
 
+            //setting image and shapes for that image
             target = new Random().nextInt(shapeSet.size());
             random = target;
             list = new ArrayList<>(shapeSet);
