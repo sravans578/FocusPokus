@@ -5,21 +5,18 @@
     android:layout_height="match_parent" >
 
     <FrameLayout
-        android:id="@+id/flSetting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="10dp">
 
         <LinearLayout
-            android:id="@+id/settingsLayout"
             android:layout_width="250dp"
             android:layout_height="240dp"
             android:background="#FFC0CB"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvExit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -72,7 +69,7 @@
     </FrameLayout>
 
     <ImageView
-        android:id="@+id/imgCancel"
+        android:id="@+id/icClose"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="right|top"

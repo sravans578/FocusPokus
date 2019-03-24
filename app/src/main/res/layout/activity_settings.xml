@@ -9,14 +9,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:layout_gravity="center" >
+            android:layout_gravity="center">
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:id="@+id/settingsLayout"
-                android:layout_width="250dp"
-                android:layout_height="300dp"
+                android:layout_width="300dp"
+                android:layout_height="400dp"
                 android:orientation="vertical"
                 android:background="#FFC0CB"
                 tools:layout_editor_absoluteX="70dp"
@@ -39,7 +39,7 @@
                         android:layout_height="180dp"
                         android:orientation="vertical"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="30dp">
+                        android:layout_marginTop="70dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -123,7 +123,6 @@
                                 android:layout_marginTop="20dp"
                                 android:background="@drawable/howtoplaybutton"
                                 android:fontFamily="@font/spring"
-                                android:onClick="displayRules"
                                 android:text="How to play"
                                 android:textColor="#000000"
                                 android:textSize="20dp" />

@@ -19,13 +19,16 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Vibrator;
 
 public class start extends AppCompatActivity {
-    Button playButton, settingsButton,rulesButton, yesButton, noButton;
+    Button playButton, settingsButton,rulesButton, yesButton, noButton, nextButton;
     private Vibrator myVib;
-    ImageView imgCancel;
+    ImageView imgCancel,imgClose,icCancel;
+    LinearLayout settingLayout,linSample;
+    TextView tvContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,18 +39,50 @@ public class start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         myVib = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
 
+        final Dialog settingDialog = new Dialog(start.this);
+        settingDialog.setContentView(R.layout.activity_settings);
+
+        final Dialog playDialog = new Dialog(start.this);
+        playDialog.setContentView(R.layout.activity_gameplay);
+
         playButton = findViewById(R.id.playButton);
         settingsButton = findViewById(R.id.settingsButton);
-        rulesButton = findViewById(R.id.rulesButton);
+        rulesButton = settingDialog.findViewById(R.id.rulesButton);
+        nextButton = playDialog.findViewById(R.id.rulesButton);
+        tvContent = playDialog.findViewById(R.id.tvContent);
+        linSample = playDialog.findViewById(R.id.llSample);
 
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Dialog dialog =  new Dialog(start.this);
+                //final Dialog dialog =  new Dialog(start.this);
+                //dialog.setContentView(R.layout.activity_settings);
+                settingDialog.show();
+                imgClose = settingDialog.findViewById(R.id.imageView_close);
 
-                dialog.setContentView(R.layout.activity_settings);
-                dialog.show();
+                imgClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        settingDialog.cancel();
+                    }
+                });
+            }
+        });
+
+        rulesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                settingDialog.dismiss();
+                playDialog.show();
+
+                icCancel = playDialog.findViewById(R.id.imgCancel);
+                icCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        playDialog.cancel();
+                    }
+                });
             }
         });
     }
@@ -59,11 +94,10 @@ public class start extends AppCompatActivity {
         startActivity(play);
     }
 
-    public void displayRules(View v)
+    public void nextStep(View v)
     {
-        Dialog dialog = new Dialog(start.this);
-        dialog.setContentView(R.layout.activity_settings);
-        dialog.show();
+        tvContent.setText(R.string.step2);
+        linSample.setVisibility(View.GONE);
     }
 
     public void exit (View view) {
@@ -93,7 +127,7 @@ public class start extends AppCompatActivity {
         imgCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                dialog.cancel();
             }
         });
     }
