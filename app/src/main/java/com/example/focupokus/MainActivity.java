@@ -108,7 +108,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
             Log.e("Error",e.getMessage());
         }
 
-        onRandomShape(jsonArrayShapeColor);
+        onRandomShapeGenerator(jsonArrayShapeColor);
 
 
         final Adapter adapter = new Adapter(this,shapeResult,colorResult);
@@ -133,7 +133,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                                 grid.setAdapter(null);
                                 shapeResult.clear();
                                 colorResult.clear();
-                                onRandomShape(jsonArrayShapeColor);
+                                onRandomShapeGenerator(jsonArrayShapeColor);
                                 grid.setAdapter(adapter);
 
                             }
@@ -168,14 +168,14 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
 		}
 
-		public void onRandomShape(JSONArray ja){
+		public void onRandomShapeGenerator(JSONArray arrayShapeColor){
         try {
-            //get 9 random shapes
+            //Set for 9 unique objects
             Set<JSONObject> shapeSet = new HashSet<>();
 //        final int random;
             while (shapeSet.size() != 9) {
-                random = new Random().nextInt(ja.length());
-                shapeSet.add(ja.getJSONObject(random));
+                random = new Random().nextInt(arrayShapeColor.length());
+                shapeSet.add(arrayShapeColor.getJSONObject(random));
 
             }
 
@@ -186,7 +186,6 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                 colorResult.add(obj.getInt("color"));
 
             }
-            Log.i("---------", "" + shapeResult);
 
             final ArrayList<JSONObject> list;
             final int target;
@@ -199,7 +198,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
         }
         catch(Exception e){
-            Log.e("",""+e);
+//            Log.e("",""+e);
         }
 
         return ;
