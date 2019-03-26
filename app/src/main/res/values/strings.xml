@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">FocuPokus</string>
+    <string name="app_name">FocusPokus</string>
+    <string name="gamePlay">Match object similar to target object. Select correct color and shape.</string>
+    <string name="arrow"> --> </string>
+    <string name="step2">You have 3 attempts per game. \nChoose game timer options from settings. \n\nView Top Scores in the main menu.</string>
+    <string name="tryitout">Try it out!</string>
+    <string name="back">Back</string>
+    <string name="correct">Correct!</string>
 </resources>
