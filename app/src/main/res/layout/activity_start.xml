@@ -73,7 +73,6 @@
         android:layout_marginTop="490dp"
         android:background="@drawable/topscores"
         android:fontFamily="@font/spring"
-        android:onClick="exit"
         android:text="Top Scores"
         android:textAllCaps="false"
         android:textColor="#FFF"

@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/playbutton">
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -66,8 +67,17 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tvCorrect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="@string/correct"
+                android:textSize="20sp"/>
+
             <Button
-                android:id="@+id/noButton"
+                android:id="@+id/nextButton"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="60dp"
