@@ -1,4 +1,5 @@
 package com.example.focupokus;
+import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Vibrator;
 import android.os.CountDownTimer;
@@ -69,6 +70,12 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
         atr=findViewById(R.id.atr);
 
 
+// game over dialog
+        final Dialog game_over = new Dialog(this);
+        game_over.setCancelable(false);
+        game_over.setContentView(R.layout.activity_exit);
+
+
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
         mediaPlayer.setLooping(true);
         boolean isMusic=true;
@@ -117,7 +124,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
             @Override
             public void onItemClick(AdapterView<?> s, View v, int position, long id) {
 
-                atr.setText("Attempts remaining : " + (attemptsRemaining -1));
+               // atr.setText("Attempts remaining : " + (attemptsRemaining ));
                 timer.start();
 
                 correctSound = MediaPlayer.create(MainActivity.this, R.raw.correctanstune);
@@ -126,6 +133,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
                             String match = shapeResult.get(random).toString()+ colorResult.get(random).toString();
                             String to_match = shapeResult.get(position).toString()+ colorResult.get(position).toString();
+                            // checking if the shape is correct or not
 
                             if (match.equals(to_match)) {
                                 score++;
@@ -137,11 +145,15 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                                 grid.setAdapter(adapter);
 
                             }
+                            // if not correct
                             else
                             {wrongSound.start();
                                 attemptsRemaining = (attemptsRemaining) - 1;
+                                atr.setText("Attempts remaining : " + (attemptsRemaining ));
+                               // atr.setText(attemptsRemaining);
                                 if(attemptsRemaining == 0)
-                                {timer.onFinish();}
+                                { game_over.show();
+                                    timer.onFinish();}
                             Toast.makeText(getApplicationContext()," " + attemptsRemaining,Toast.LENGTH_LONG).show();
                                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                                 getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
