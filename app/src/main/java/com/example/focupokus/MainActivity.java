@@ -1,4 +1,6 @@
 package com.example.focupokus;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Vibrator;
 import android.os.CountDownTimer;
@@ -48,7 +50,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
     public JSONArray jsonArrayShapeColor = new JSONArray();
 
 
-
+   Context context=this;
 
 
     @Override
@@ -72,6 +74,21 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
         mediaPlayer.setLooping(true);
         boolean isMusic=true;
+        insertScore("user1",10);
+        insertScore("user1",11);
+        insertScore("user1",12);
+        insertScore("user1",13);
+        insertScore("user1",14);
+        insertScore("user1",15);
+        insertScore("user1",16);
+        insertScore("user1",17);
+        insertScore("user1",18);
+        insertScore("user1",19);
+        insertScore("user1",20);
+        insertScore("user1",21);
+
+        //getScore();
+        getTopScore();
 			if(isMusic) {
 				mediaPlayer.start();}
 				vibrateEffect = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
@@ -206,5 +223,27 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
         return ;
         }
+     public void insertScore(String name, Integer score)
+    {
+        userDbHelper dbHelper= new userDbHelper(context);
+        SQLiteDatabase db= dbHelper.getWritableDatabase();
+        dbHelper.addScoreInformation(name,score,db);
+
+    }
+    public void getScore()
+    {
+        userDbHelper dbHelper= new userDbHelper(context);
+        SQLiteDatabase db= dbHelper.getWritableDatabase();
+        dbHelper.getAllScore(db);
+
+    }
+    public void getTopScore()
+    {
+        userDbHelper dbHelper= new userDbHelper(context);
+        SQLiteDatabase db= dbHelper.getWritableDatabase();
+        dbHelper.getTopScore(db);
+
+    }
+
 }
 

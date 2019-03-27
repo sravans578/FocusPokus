@@ -112,6 +112,13 @@ public class start extends AppCompatActivity {
         startActivity(play);
     }
 
+    public void topScore (View view) {
+        myVib.vibrate(200);
+        Log.d("hello","hi"+myVib.hasVibrator());
+        Intent play = new Intent(this, MainActivity.class);
+        startActivity(play);
+    }
+
     public void firstStep(View v)
     {
         tvContent.setText(R.string.gamePlay);
