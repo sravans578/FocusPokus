@@ -93,7 +93,15 @@ public class MainActivity extends AppCompatActivity {
 					}
             }
         };
-  
+        for (int iIndex=0; iIndex < NO_OF_IMAGES; iIndex++){
+            String urlIcon = "image_"+iIndex;
+            Resources resources = getApplicationContext().getResources();
+            final int resIcon = resources.getIdentifier(urlIcon,"drawable",getApplicationContext().getPackageName());
+//            weatherIcon.setImageResource(resIcon);
+            shapes[iIndex]= resIcon;
+
+        }
+
         //creating json array of shapes and colors
         try {
             for (int kIndex = 0; kIndex < shapes.length; kIndex++) {
