@@ -12,7 +12,7 @@
 
         <LinearLayout
             android:layout_width="250dp"
-            android:layout_height="240dp"
+            android:layout_height="350dp"
             android:background="#FFC0CB"
             android:orientation="vertical">
 
@@ -27,6 +27,19 @@
                 android:textSize="45dp" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/spring"
+                android:text="SCORE :"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="45dp"
+                android:id="@+id/score_card"/>
+
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -69,7 +82,7 @@
     </FrameLayout>
 
     <ImageView
-        android:id="@+id/icClose"
+        android:id="@+id/gover_close"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="right|top"

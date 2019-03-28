@@ -35,8 +35,8 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
     ArrayList<Integer> shapeResult = new ArrayList<Integer>();
     ArrayList<Integer> colorResult = new ArrayList<Integer>();
     GridView grid;
-    ImageView targetView;
-    TextView textView;
+    ImageView targetView, gameover_cancel;
+    TextView textView, score_card;
     TextView et;
     TextView atr;
     public int score =0;
@@ -45,7 +45,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 	MediaPlayer wrongSound;
 	private Vibrator vibrateEffect;
 	public int random;
-	public int attemptsRemaining;
+	public static int attemptsRemaining;
     public JSONArray jsonArrayShapeColor = new JSONArray();
 
 
@@ -61,6 +61,9 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
+
+
+
         //defining grid
         grid = findViewById(R.id.hello);
         targetView = findViewById(R.id.targetView);
@@ -75,6 +78,9 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
         game_over.setCancelable(false);
         game_over.setContentView(R.layout.activity_exit);
 
+        gameover_cancel = game_over.findViewById(R.id.gover_close);
+        score_card = game_over.findViewById(R.id.score_card);
+
 
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
         mediaPlayer.setLooping(true);
@@ -83,7 +89,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 				mediaPlayer.start();}
 				vibrateEffect = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
 			grid.setHapticFeedbackEnabled(true);
-        final CountDownTimer timer = new CountDownTimer(10000, 1000) {
+        final  CountDownTimer timer = new CountDownTimer(10000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 et.setText("Time remaining: " + millisUntilFinished / 1000 );
@@ -91,7 +97,9 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
             public void onFinish() {
                 if (attemptsRemaining == 0 ) {
-                    attemptsRemaining = 3;
+                    //attemptsRemaining = 3;
+
+                    score_card.setText("Score:" + score);
                     et.setText("Better luck next time!");}
                 else
                 { attemptsRemaining--;
@@ -152,8 +160,17 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                                 atr.setText("Attempts remaining : " + (attemptsRemaining ));
                                // atr.setText(attemptsRemaining);
                                 if(attemptsRemaining == 0)
-                                { game_over.show();
-                                    timer.onFinish();}
+                                {   et.setText("Better luck next time !!");
+                                    timer.onFinish();
+
+                                    game_over.show();
+                                    gameover_cancel.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            game_over.cancel();
+                                        }
+                                    });
+                                    }
                             Toast.makeText(getApplicationContext()," " + attemptsRemaining,Toast.LENGTH_LONG).show();
                                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                                 getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
