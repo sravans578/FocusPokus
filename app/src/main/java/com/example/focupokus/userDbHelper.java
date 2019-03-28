@@ -79,7 +79,7 @@ public class userDbHelper extends SQLiteOpenHelper
     {
         ArrayList<UserScoreBean> scoreList = new ArrayList<UserScoreBean>();
 
-        Cursor cursor = db.rawQuery("select distinct user_score , user_name from user_score_info order by user_score desc limit 5;",null);
+        Cursor cursor = db.rawQuery("select distinct user_score , user_name from user_score_info order by user_score desc limit 3;",null);
 
         while (cursor.moveToNext())
         {
