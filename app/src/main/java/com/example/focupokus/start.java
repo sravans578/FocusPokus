@@ -22,13 +22,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Vibrator;
-
+import android.widget.ListView;
+import android.widget.ArrayAdapter;
+import android.database.sqlite.SQLiteDatabase;
+import java.util.ArrayList;
+import android.content.Context;
 public class start extends AppCompatActivity {
     private Button playButton, settingsButton,rulesButton, yesButton, noButton, nextButton, okButton;
     private Vibrator myVib;
     private ImageView imgCancel,imgClose,icCancel, cancel;
     private LinearLayout settingLayout,linSample;
     private TextView tvContent,tvCorrect;
+    private ListView scoreList;
+    Context context=this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,6 +142,19 @@ public class start extends AppCompatActivity {
 
         cancel = sdialog.findViewById(R.id.Cancel);
         okButton = sdialog.findViewById(R.id.okButton);
+        scoreList=sdialog.findViewById(R.id.lvScores);
+
+        ArrayList <Integer> topScoreList=getTopScore();
+        Integer[] array = topScoreList.toArray(new Integer[topScoreList.size()]);
+        Log.d("top score" , "top score "+topScoreList);
+        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this,
+                android.R.layout.simple_expandable_list_item_1, android.R.id.text1, array);
+
+        scoreList.setAdapter(adapter);
+        // Assign adapter to ListView
+
+
+
 
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +170,16 @@ public class start extends AppCompatActivity {
             }
         });
     }
+
+    public ArrayList<Integer>  getTopScore()
+    {
+        userDbHelper dbHelper= new userDbHelper(context);
+        SQLiteDatabase db= dbHelper.getWritableDatabase();
+        ArrayList<Integer> scoreList = dbHelper.getTopScore(db);
+        return scoreList;
+
+    }
+
 
     public void exit (View view) {
 
