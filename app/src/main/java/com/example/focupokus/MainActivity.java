@@ -3,6 +3,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Vibrator;
 import android.os.CountDownTimer;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,10 +30,10 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 //defining shapes for the grid
 //int shapes[] = {R.drawable.ic_arrow_down_filled_triangle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
-    static final int NO_OF_IMAGES=394;
+    static final int NO_OF_IMAGES=100;
     int shapes[] = new int[NO_OF_IMAGES];
-    int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
-
+//    int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
+    int colors[]={R.color.alienArmpit,R.color.denimBlue,R.color.grasshopperGreen,R.color.radicalRed};
 
     ArrayList<Integer> shapeResult = new ArrayList<Integer>();
     ArrayList<Integer> colorResult = new ArrayList<Integer>();
@@ -72,18 +73,7 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
         mediaPlayer.setLooping(true);
         boolean isMusic=true;
-
-        for (int iIndex=0; iIndex < NO_OF_IMAGES; iIndex++){
-            String urlIcon = "image_"+iIndex;
-            Resources resources = getApplicationContext().getResources();
-            final int resIcon = resources.getIdentifier(urlIcon,"drawable",getApplicationContext().getPackageName());
-//            weatherIcon.setImageResource(resIcon);
-            shapes[iIndex]= resIcon;
-
-        }
-
-
-        if(isMusic) {
+			if(isMusic) {
 				mediaPlayer.start();}
 				vibrateEffect = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
 			grid.setHapticFeedbackEnabled(true);
@@ -104,6 +94,12 @@ public class MainActivity extends AppCompatActivity {
 					}
             }
         };
+        for (int iIndex=0; iIndex < NO_OF_IMAGES; iIndex++){
+            String image = "image_"+iIndex;
+            Resources resources = getApplicationContext().getResources();
+            final int resImage = resources.getIdentifier(image,"drawable",getApplicationContext().getPackageName());
+            shapes[iIndex]= resImage;
+        }
 
         //creating json array of shapes and colors
         try {
@@ -207,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
             target = new Random().nextInt(shapeSet.size());
             random = target;
             list = new ArrayList<>(shapeSet);
+            Log.i("list",""+list);
             targetView.setImageResource(list.get(target).getInt("shape"));
             targetView.setColorFilter(list.get(target).getInt("color"));
 

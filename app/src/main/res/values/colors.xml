@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorYellow">#FFC107</color>
+    <color name="colorYellow" tools:ignore="MissingDefaultResource">#FFC107</color>
+    <color name="radicalRed">#FF355E</color>
+    <color name="outrageousOrange">#FF6037</color>
+    <color name="alienArmpit">#84DE02</color>
+    <color name="yellowSunshine">#FFF700</color>
+    <color name="fieryRose">#FF5470</color>
+    <color name="denimBlue">#2243B6</color>
+    <color name="teal">#00CCCC</color>
+    <color name="grasshopperGreen">#299617</color>
+
 </resources>

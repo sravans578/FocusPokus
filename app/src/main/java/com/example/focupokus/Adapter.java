@@ -2,6 +2,7 @@ package com.example.focupokus;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.graphics.ColorUtils;
 import android.util.Log;
 import android.view.View;
@@ -52,7 +53,7 @@ public class Adapter extends BaseAdapter {
 
         shape.setImageResource(gridShapes.get(position));
         shape.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        shape.setColorFilter(gridColors.get(position));
+//        shape.setColorFilter(gridColors.get(position));
 
         shape.setLayoutParams(new GridView.LayoutParams(160,160));
 
