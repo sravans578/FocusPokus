@@ -29,10 +29,9 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 //defining shapes for the grid
-//int shapes[] = {R.drawable.ic_arrow_down_filled_triangle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
     static final int NO_OF_IMAGES=100;
     int shapes[] = new int[NO_OF_IMAGES];
-    int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
+    int colors[]={R.color.colorAccent, R.color.colorYellow,R.color.yellowSunshine,R.color.fieryRose,R.color.orange_red,R.color.red,R.color.tan,R.color.medium_violet_red,R.color.light_blue,R.color.lime,R.color.deep_sky_blue};
 
     //colors from drawable resource
 
