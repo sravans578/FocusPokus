@@ -50,10 +50,10 @@ public class Adapter extends BaseAdapter {
 //        Log.i("----Color",""+gridColors);
 
         Log.i("color","color"+gridColors.get(position));
-
+        //setting the grid images
         shape.setImageResource(gridShapes.get(position));
         shape.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//        shape.setColorFilter(gridColors.get(position));
+        shape.setColorFilter(gridColors.get(position));
 
         shape.setLayoutParams(new GridView.LayoutParams(160,160));
 

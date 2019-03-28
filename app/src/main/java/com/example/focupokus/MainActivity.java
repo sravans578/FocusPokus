@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     static final int NO_OF_IMAGES=100;
     int shapes[] = new int[NO_OF_IMAGES];
 //    int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
+    //colors from drawable resource
     int colors[]={R.color.alienArmpit,R.color.denimBlue,R.color.grasshopperGreen,R.color.radicalRed};
 
     ArrayList<Integer> shapeResult = new ArrayList<Integer>();
@@ -204,6 +205,7 @@ public class MainActivity extends AppCompatActivity {
             random = target;
             list = new ArrayList<>(shapeSet);
             Log.i("list",""+list);
+            //setting the target object
             targetView.setImageResource(list.get(target).getInt("shape"));
             targetView.setColorFilter(list.get(target).getInt("color"));
 
