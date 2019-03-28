@@ -31,12 +31,11 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class MainActivity extends AppCompatActivity {
 //defining shapes for the grid
-//int shapes[] = {R.drawable.ic_arrow_down_filled_triangle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
     static final int NO_OF_IMAGES=100;
     int shapes[] = new int[NO_OF_IMAGES];
-//    int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
+    int colors[]={R.color.colorAccent, R.color.colorYellow,R.color.yellowSunshine,R.color.fieryRose,R.color.orange_red,R.color.red,R.color.tan,R.color.medium_violet_red,R.color.light_blue,R.color.lime,R.color.deep_sky_blue};
+
     //colors from drawable resource
-    int colors[]={R.color.alienArmpit,R.color.denimBlue,R.color.grasshopperGreen,R.color.radicalRed};
 
     ArrayList<Integer> shapeResult = new ArrayList<Integer>();
     ArrayList<Integer> colorResult = new ArrayList<Integer>();
@@ -207,11 +206,9 @@ public class MainActivity extends AppCompatActivity {
             target = new Random().nextInt(shapeSet.size());
             random = target;
             list = new ArrayList<>(shapeSet);
-            Log.i("list",""+list);
             //setting the target object
             targetView.setImageResource(list.get(target).getInt("shape"));
-            targetView.setColorFilter(list.get(target).getInt("color"));
-
+            targetView.setColorFilter(ResourcesCompat.getColor(getResources(),list.get(target).getInt("color"),null));
         }
         catch(Exception e){
 //            Log.e("",""+e);
