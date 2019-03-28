@@ -234,7 +234,7 @@ public class start extends AppCompatActivity {
     public void exit (View view) {
 
         final Dialog dialog = new Dialog(start.this);
-        dialog.setContentView(R.layout.activity_exit);
+        dialog.setContentView(R.layout.activity_app_exit);
         dialog.show();
 
         imgCancel = dialog.findViewById(R.id.icClose);
