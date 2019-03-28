@@ -86,6 +86,9 @@ public class start extends AppCompatActivity {
                 soundSwitch=settingDialog.findViewById(R.id.soundSwitch);
                 vibrateSwitch=settingDialog.findViewById(R.id.vibrateSwitch);
                 musicSwitch=settingDialog.findViewById(R.id.musicSwitch);
+                soundSwitch.setChecked(mPreference.getBoolean("soundSwitchValue",true));
+                vibrateSwitch.setChecked(mPreference.getBoolean("vibrateSwitchValue",true));
+                musicSwitch.setChecked(mPreference.getBoolean("musicSwitchValue",true));
 
                 soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
