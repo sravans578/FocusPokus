@@ -27,6 +27,10 @@ import android.widget.ArrayAdapter;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.widget.Switch;
+import android.widget.CompoundButton;
 public class start extends AppCompatActivity {
     private Button playButton, settingsButton,rulesButton, yesButton, noButton, nextButton, okButton;
     private Vibrator myVib;
@@ -36,6 +40,13 @@ public class start extends AppCompatActivity {
     private ListView scoreList;
     Context context=this;
     private ScoreAdapter adapter;
+    private Switch soundSwitch;
+    private Switch vibrateSwitch;
+    private Switch musicSwitch;
+    private SharedPreferences mPreference;
+    private SharedPreferences.Editor meditor;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +80,25 @@ public class start extends AppCompatActivity {
 
 
                 imgClose = settingDialog.findViewById(R.id.imageView_close);
+                soundSwitch=settingDialog.findViewById(R.id.soundSwitch);
+                vibrateSwitch=settingDialog.findViewById(R.id.vibrateSwitch);
+                musicSwitch=settingDialog.findViewById(R.id.musicSwitch);
+
+                soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                        meditor.putBoolean("soundSwitchValue",soundSwitch.isChecked());
+                        soundSwitch.setChecked(soundSwitch.isChecked());
+                        meditor.commit();
+                        boolean isMusic= mPreference.getBoolean("soundSwitchValue",true);
+                        Log.d("boolean", "boolean"+isMusic);
+                        //((start)getActivity()).sound=soundSwitch.isChecked();
+
+                    }
+                });
+
+
 
                 imgClose.setOnClickListener(new View.OnClickListener() {
                     @Override
