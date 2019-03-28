@@ -1,4 +1,5 @@
 package com.example.focupokus;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Vibrator;
 import android.os.CountDownTimer;
@@ -28,7 +29,8 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 //defining shapes for the grid
 //int shapes[] = {R.drawable.ic_arrow_down_filled_triangle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
-    int shapes[];
+    static final int NO_OF_IMAGES=394;
+    int shapes[] = new int[NO_OF_IMAGES];
     int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
 
@@ -47,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
 	public int random;
 	public int attemptsRemaining;
     public JSONArray jsonArrayShapeColor = new JSONArray();
-
-
-
 
 
     @Override
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 					}
             }
         };
-
+  
         //creating json array of shapes and colors
         try {
             for (int kIndex = 0; kIndex < shapes.length; kIndex++) {
