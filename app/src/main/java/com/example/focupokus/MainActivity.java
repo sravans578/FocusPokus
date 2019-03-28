@@ -72,7 +72,18 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
         mediaPlayer.setLooping(true);
         boolean isMusic=true;
-			if(isMusic) {
+
+        for (int iIndex=0; iIndex < NO_OF_IMAGES; iIndex++){
+            String urlIcon = "image_"+iIndex;
+            Resources resources = getApplicationContext().getResources();
+            final int resIcon = resources.getIdentifier(urlIcon,"drawable",getApplicationContext().getPackageName());
+//            weatherIcon.setImageResource(resIcon);
+            shapes[iIndex]= resIcon;
+
+        }
+
+
+        if(isMusic) {
 				mediaPlayer.start();}
 				vibrateEffect = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
 			grid.setHapticFeedbackEnabled(true);
@@ -93,14 +104,6 @@ public class MainActivity extends AppCompatActivity {
 					}
             }
         };
-        for (int iIndex=0; iIndex < NO_OF_IMAGES; iIndex++){
-            String urlIcon = "image_"+iIndex;
-            Resources resources = getApplicationContext().getResources();
-            final int resIcon = resources.getIdentifier(urlIcon,"drawable",getApplicationContext().getPackageName());
-//            weatherIcon.setImageResource(resIcon);
-            shapes[iIndex]= resIcon;
-
-        }
 
         //creating json array of shapes and colors
         try {
