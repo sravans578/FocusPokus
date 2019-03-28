@@ -50,6 +50,7 @@ public class start extends AppCompatActivity {
 
         final Dialog playDialog = new Dialog(start.this);
         playDialog.setContentView(R.layout.activity_gameplay);
+        
 
         playButton = findViewById(R.id.playButton);
         settingsButton = findViewById(R.id.settingsButton);
