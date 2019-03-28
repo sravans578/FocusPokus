@@ -31,7 +31,7 @@
                         android:layout_marginTop="20dp"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textSize="45dp"
-                        android:text="Settings"
+                        android:text="@string/setting"
                         android:fontFamily="@font/spring"
                         android:layout_gravity="center_horizontal"/>
 
@@ -53,7 +53,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0.9"
                                 android:fontFamily="@font/spring"
-                                android:text="Sound Effects"
+                                android:text="@string/soundeffects"
                                 android:textColor="#800000"
                                 android:textSize="30dp" />
 
@@ -75,7 +75,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Vibration"
+                                android:text="@string/Vibration"
                                 android:textSize="30dp"
                                 android:textColor="#800000"
                                 android:fontFamily="@font/spring"
@@ -101,7 +101,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0.9"
                                 android:fontFamily="@font/spring"
-                                android:text="Music"
+                                android:text="@string/Music"
                                 android:textColor="#800000"
                                 android:textSize="30dp" />
 
@@ -121,15 +121,15 @@
 
                             <Button
                                 android:id="@+id/rulesButton"
-                                android:layout_width="120dp"
+                                android:layout_width="150dp"
                                 android:layout_height="40dp"
-                                android:layout_marginStart="55dp"
+                                android:layout_marginStart="45dp"
                                 android:layout_marginTop="20dp"
                                 android:background="@drawable/howtoplaybutton"
                                 android:fontFamily="@font/spring"
-                                android:text="How to play"
+                                android:text="@string/buttonplay"
                                 android:textColor="#000000"
-                                android:textSize="20dp" />
+                                android:textSize="25dp" />
                         </LinearLayout>
 
                     </LinearLayout>

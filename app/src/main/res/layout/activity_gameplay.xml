@@ -23,7 +23,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/spring"
-                android:text="How to play:"
+                android:text="@string/howtoplay"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textSize="45dp" />
 
@@ -85,7 +85,7 @@
                 android:background="@drawable/howtoplaybutton"
                 android:fontFamily="@font/spring"
                 android:onClick="nextStep"
-                android:text="Next"
+                android:text="@string/next"
                 android:textColor="#000000"
                 android:textSize="25dp" />
 
