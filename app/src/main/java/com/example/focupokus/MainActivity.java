@@ -1,5 +1,7 @@
 package com.example.focupokus;
+import android.app.ActivityOptions;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Vibrator;
 import android.os.CountDownTimer;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.media.MediaPlayer;
@@ -35,10 +38,11 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
     ArrayList<Integer> shapeResult = new ArrayList<Integer>();
     ArrayList<Integer> colorResult = new ArrayList<Integer>();
     GridView grid;
-    ImageView targetView, gameover_cancel;
+    ImageView targetView;
     TextView textView, score_card;
     TextView et;
     TextView atr;
+    Button go_home, restart;
     public int score =0;
 	MediaPlayer correctSound;
 	MediaPlayer mediaPlayer;
@@ -47,6 +51,12 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 	public int random;
 	public static int attemptsRemaining;
     public JSONArray jsonArrayShapeColor = new JSONArray();
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        setContentView(R.layout.activity_main);
+    }
 
 
 
@@ -63,7 +73,6 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
 
 
-
         //defining grid
         grid = findViewById(R.id.hello);
         targetView = findViewById(R.id.targetView);
@@ -77,9 +86,10 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
         final Dialog game_over = new Dialog(this);
         game_over.setCancelable(false);
         game_over.setContentView(R.layout.activity_exit);
-
-        gameover_cancel = game_over.findViewById(R.id.gover_close);
         score_card = game_over.findViewById(R.id.score_card);
+        go_home = game_over.findViewById(R.id.home_button);
+        restart = game_over.findViewById(R.id.restart_button);
+
 
 
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
@@ -88,7 +98,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 			if(isMusic) {
 				mediaPlayer.start();}
 				vibrateEffect = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
-			grid.setHapticFeedbackEnabled(true);
+			    grid.setHapticFeedbackEnabled(true);
         final  CountDownTimer timer = new CountDownTimer(10000, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -99,7 +109,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                 if (attemptsRemaining == 0 ) {
                     //attemptsRemaining = 3;
 
-                    score_card.setText("Score:" + score);
+                    score_card.setText("Score: " + score);
                     et.setText("Better luck next time!");}
                 else
                 { attemptsRemaining--;
@@ -162,14 +172,33 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                                 if(attemptsRemaining == 0)
                                 {   et.setText("Better luck next time !!");
                                     timer.onFinish();
-
                                     game_over.show();
-                                    gameover_cancel.setOnClickListener(new View.OnClickListener() {
+
+                                    go_home.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent home = new Intent(getApplicationContext(), start.class);
+                                            startActivity(home);
+                                        }
+                                    });
+
+                                    restart.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
                                             game_over.cancel();
+                                            finish();
+                                            // ActivityOptions animation = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this);
+                                            // sleeping for 1 second so as to make the transition smooth
+//                                            try {
+//                                                Thread.sleep(1000);
+//                                            } catch (InterruptedException error) {
+//                                                error.printStackTrace();
+//                                            }
+                                            //startActivity(getIntent(),animation.toBundle());
+                                            startActivity(getIntent());
                                         }
                                     });
+
                                     }
                             Toast.makeText(getApplicationContext()," " + attemptsRemaining,Toast.LENGTH_LONG).show();
                                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
