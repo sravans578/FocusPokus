@@ -1,4 +1,7 @@
 package com.example.focupokus;
+import android.app.ActivityOptions;
+import android.app.Dialog;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Vibrator;
@@ -11,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.media.MediaPlayer;
@@ -43,16 +47,17 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Integer> colorResult = new ArrayList<Integer>();
     GridView grid;
     ImageView targetView;
-    TextView textView;
+    TextView textView, score_card;
     TextView et;
     TextView atr;
+    Button go_home, restart;
     public int score =0;
 	MediaPlayer correctSound;
 	MediaPlayer mediaPlayer;
 	MediaPlayer wrongSound;
 	private Vibrator vibrateEffect;
 	public int random;
-	public int attemptsRemaining;
+	public static int attemptsRemaining;
     public JSONArray jsonArrayShapeColor = new JSONArray();
     Context context=this;
     private SharedPreferences mPreference;
@@ -72,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
+
+
         //defining grid
         grid = findViewById(R.id.hello);
         targetView = findViewById(R.id.targetView);
@@ -79,6 +86,16 @@ public class MainActivity extends AppCompatActivity {
         textView =findViewById(R.id.textView);
         et=findViewById(R.id.et);
         atr=findViewById(R.id.atr);
+
+
+// game over dialog
+        final Dialog game_over = new Dialog(this);
+        game_over.setCancelable(false);
+        game_over.setContentView(R.layout.activity_exit);
+        score_card = game_over.findViewById(R.id.score_card);
+        go_home = game_over.findViewById(R.id.home_button);
+        restart = game_over.findViewById(R.id.restart_button);
+
 
 
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
@@ -91,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
 			if(isMusic) {
 				mediaPlayer.start();}
 				vibrateEffect = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
-			grid.setHapticFeedbackEnabled(true);
-        final CountDownTimer timer = new CountDownTimer(10000, 1000) {
+			    grid.setHapticFeedbackEnabled(true);
+        final  CountDownTimer timer = new CountDownTimer(10000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 et.setText("Time remaining: " + millisUntilFinished / 1000 );
@@ -100,8 +117,12 @@ public class MainActivity extends AppCompatActivity {
 
             public void onFinish() {
                 if (attemptsRemaining == 0 ) {
-                    attemptsRemaining = 3;
-                    et.setText("Better luck next time!");}
+                    //attemptsRemaining = 3;
+
+                    score_card.setText("Score: " + score);
+                    insertScore("Gaygan",score);
+                    score = 0;
+                    et.setText("Better luck next time!"); }
                 else
                 { attemptsRemaining--;
                 atr.setText("Attempts remaining : " + attemptsRemaining);
@@ -139,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> s, View v, int position, long id) {
 
-                atr.setText("Attempts remaining : " + (attemptsRemaining -1));
+               // atr.setText("Attempts remaining : " + (attemptsRemaining ));
                 timer.start();
 
                 correctSound = MediaPlayer.create(MainActivity.this, R.raw.correctanstune);
@@ -148,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
                             String match = shapeResult.get(random).toString()+ colorResult.get(random).toString();
                             String to_match = shapeResult.get(position).toString()+ colorResult.get(position).toString();
+                            // checking if the shape is correct or not
 
                             if (match.equals(to_match))
                             {
@@ -163,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
                                 grid.setAdapter(adapter);
 
                             }
+                            // if not correct
                             else
                             {
                                 if(isSound)
@@ -170,9 +193,42 @@ public class MainActivity extends AppCompatActivity {
                                     wrongSound.start();
                                 }
                                 attemptsRemaining = (attemptsRemaining) - 1;
+                                atr.setText("Attempts remaining : " + (attemptsRemaining ));
+                               // atr.setText(attemptsRemaining);
                                 if(attemptsRemaining == 0)
-                                {timer.onFinish();}
-                                Toast.makeText(getApplicationContext()," " + attemptsRemaining,Toast.LENGTH_LONG).show();
+                                {   et.setText("Better luck next time !!");
+                                    timer.onFinish();
+                                    game_over.show();
+
+
+
+                                    go_home.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent home = new Intent(getApplicationContext(), start.class);
+                                            startActivity(home);
+                                        }
+                                    });
+
+                                    restart.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            game_over.cancel();
+                                            finish();
+                                            // ActivityOptions animation = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this);
+                                            // sleeping for 1 second so as to make the transition smooth
+//                                            try {
+//                                                Thread.sleep(1000);
+//                                            } catch (InterruptedException error) {
+//                                                error.printStackTrace();
+//                                            }
+                                            //startActivity(getIntent(),animation.toBundle());
+                                            startActivity(getIntent());
+                                        }
+                                    });
+
+                                    }
+                           // Toast.makeText(getApplicationContext()," " + attemptsRemaining,Toast.LENGTH_LONG).show();
                                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                                 getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
                                 v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);

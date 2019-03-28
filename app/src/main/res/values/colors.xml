@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#FF0048</color>
     <color name="colorYellow" tools:ignore="MissingDefaultResource">#FFC107</color>
-    <color name="yellowSunshine">#FFF700</color>
+    <color name="yellowSunshine" tools:ignore="MissingDefaultResource">#FFF700</color>
     <color name="fieryRose">#FF5470</color>
     <color name="orange_red">#FF4500</color>
     <color name="red">#03A9F4</color>
