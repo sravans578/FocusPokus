@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -54,6 +55,7 @@ public class start extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
+
         myVib = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
 
         final Dialog settingDialog = new Dialog(start.this);
@@ -122,8 +124,6 @@ public class start extends AppCompatActivity {
 
                     }
                 });
-
-
 
                 imgClose.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -202,8 +202,6 @@ public class start extends AppCompatActivity {
         ArrayList <UserScoreBean> topScoreList = getTopScore();
         adapter = new ScoreAdapter(this, R.layout.activity_topscore, topScoreList);
         scoreList.setAdapter(adapter);
-
-
 
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
