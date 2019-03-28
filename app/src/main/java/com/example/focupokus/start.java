@@ -35,7 +35,7 @@ public class start extends AppCompatActivity {
     private TextView tvContent,tvCorrect;
     private ListView scoreList;
     Context context=this;
-
+    private ScoreAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,15 +144,9 @@ public class start extends AppCompatActivity {
         okButton = sdialog.findViewById(R.id.okButton);
         scoreList=sdialog.findViewById(R.id.lvScores);
 
-        ArrayList <Integer> topScoreList=getTopScore();
-        Integer[] array = topScoreList.toArray(new Integer[topScoreList.size()]);
-        Log.d("top score" , "top score "+topScoreList);
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this,
-                android.R.layout.simple_expandable_list_item_1, android.R.id.text1, array);
-
+        ArrayList <UserScoreBean> topScoreList = getTopScore();
+        adapter = new ScoreAdapter(this, R.layout.activity_topscore, topScoreList);
         scoreList.setAdapter(adapter);
-        // Assign adapter to ListView
-
 
 
 
@@ -171,11 +165,12 @@ public class start extends AppCompatActivity {
         });
     }
 
-    public ArrayList<Integer>  getTopScore()
+    public ArrayList<UserScoreBean>  getTopScore()
     {
         userDbHelper dbHelper= new userDbHelper(context);
         SQLiteDatabase db= dbHelper.getWritableDatabase();
-        ArrayList<Integer> scoreList = dbHelper.getTopScore(db);
+        ArrayList<UserScoreBean> scoreList = dbHelper.getTopScore(db);
+        Log.d("list size","list size"+scoreList.size());
         return scoreList;
 
     }

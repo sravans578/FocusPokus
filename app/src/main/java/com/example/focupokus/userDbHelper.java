@@ -75,17 +75,20 @@ public class userDbHelper extends SQLiteOpenHelper
 
         return scoreList;
     }
-    public ArrayList<Integer> getTopScore(SQLiteDatabase db)
+    public ArrayList<UserScoreBean> getTopScore(SQLiteDatabase db)
     {
-        ArrayList<Integer> scoreList = new ArrayList<Integer>();
+        ArrayList<UserScoreBean> scoreList = new ArrayList<UserScoreBean>();
 
-        Cursor cursor = db.rawQuery("select distinct user_score from user_score_info order by user_score desc limit 5;",null);
+        Cursor cursor = db.rawQuery("select distinct user_score , user_name from user_score_info order by user_score desc limit 5;",null);
 
         while (cursor.moveToNext())
         {
-
+            UserScoreBean bean =new UserScoreBean();
             Integer score =cursor.getInt(0);
-            scoreList.add(score);
+            String name =cursor.getString(1);
+            bean.setName(name);
+            bean.setScore(score);
+            scoreList.add(bean);
 
         }
         cursor.close();
