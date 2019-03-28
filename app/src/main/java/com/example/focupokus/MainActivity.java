@@ -153,7 +153,10 @@ public class MainActivity extends AppCompatActivity {
                             if (match.equals(to_match))
                             {
                                 score++;
-                                correctSound.start();
+                                if(isSound)
+                                {
+                                    correctSound.start();
+                                }
                                 grid.setAdapter(null);
                                 shapeResult.clear();
                                 colorResult.clear();
@@ -163,8 +166,10 @@ public class MainActivity extends AppCompatActivity {
                             }
                             else
                             {
-
-                                wrongSound.start();
+                                if(isSound)
+                                {
+                                    wrongSound.start();
+                                }
                                 attemptsRemaining = (attemptsRemaining) - 1;
                                 if(attemptsRemaining == 0)
                                 {timer.onFinish();}
@@ -176,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
                                 {
                                     vibrateEffect.vibrate(200);
                                 }
+
 
                             }
                             String score_1 = "Score : " + score;
