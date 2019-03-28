@@ -91,22 +91,18 @@ public class start extends AppCompatActivity {
                         meditor.putBoolean("soundSwitchValue",soundSwitch.isChecked());
                         soundSwitch.setChecked(soundSwitch.isChecked());
                         meditor.commit();
-                        boolean isMusic= mPreference.getBoolean("soundSwitchValue",true);
-                        Log.d("boolean", "boolean"+isMusic);
-                        //((start)getActivity()).sound=soundSwitch.isChecked();
 
                     }
                 });
+
                 vibrateSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                        meditor.putBoolean("soundSwitchValue",soundSwitch.isChecked());
-                        soundSwitch.setChecked(soundSwitch.isChecked());
+                        meditor.putBoolean("vibrateSwitchValue",vibrateSwitch.isChecked());
+                        vibrateSwitch.setChecked(vibrateSwitch.isChecked());
                         meditor.commit();
-                        boolean isMusic= mPreference.getBoolean("soundSwitchValue",true);
-                        Log.d("boolean", "boolean"+isMusic);
-                        //((start)getActivity()).sound=soundSwitch.isChecked();
+                        
 
                     }
                 });
