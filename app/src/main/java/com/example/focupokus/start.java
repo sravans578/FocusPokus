@@ -27,6 +27,10 @@ import android.widget.ArrayAdapter;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.widget.Switch;
+import android.widget.CompoundButton;
 public class start extends AppCompatActivity {
     private Button playButton, settingsButton,rulesButton, yesButton, noButton, nextButton, okButton;
     private Vibrator myVib;
@@ -36,6 +40,13 @@ public class start extends AppCompatActivity {
     private ListView scoreList;
     Context context=this;
     private ScoreAdapter adapter;
+    private Switch soundSwitch;
+    private Switch vibrateSwitch;
+    private Switch musicSwitch;
+    private SharedPreferences mPreference;
+    private SharedPreferences.Editor meditor;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +69,9 @@ public class start extends AppCompatActivity {
         tvContent = playDialog.findViewById(R.id.tvContent);
         tvCorrect = playDialog.findViewById(R.id.tvCorrect);
         linSample = playDialog.findViewById(R.id.llSample);
+        mPreference= PreferenceManager.getDefaultSharedPreferences(this);
+        meditor=mPreference.edit();
+
 
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +83,47 @@ public class start extends AppCompatActivity {
 
 
                 imgClose = settingDialog.findViewById(R.id.imageView_close);
+                soundSwitch=settingDialog.findViewById(R.id.soundSwitch);
+                vibrateSwitch=settingDialog.findViewById(R.id.vibrateSwitch);
+                musicSwitch=settingDialog.findViewById(R.id.musicSwitch);
+                soundSwitch.setChecked(mPreference.getBoolean("soundSwitchValue",true));
+                vibrateSwitch.setChecked(mPreference.getBoolean("vibrateSwitchValue",true));
+                musicSwitch.setChecked(mPreference.getBoolean("musicSwitchValue",true));
+
+                soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                        meditor.putBoolean("soundSwitchValue",soundSwitch.isChecked());
+                        soundSwitch.setChecked(soundSwitch.isChecked());
+                        meditor.commit();
+
+                    }
+                });
+
+                vibrateSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                        meditor.putBoolean("vibrateSwitchValue",vibrateSwitch.isChecked());
+                        vibrateSwitch.setChecked(vibrateSwitch.isChecked());
+                        meditor.commit();
+
+
+                    }
+                });
+                musicSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                        meditor.putBoolean("musicSwitchValue",musicSwitch.isChecked());
+                        soundSwitch.setChecked(soundSwitch.isChecked());
+                        meditor.commit();
+
+                    }
+                });
+
+
 
                 imgClose.setOnClickListener(new View.OnClickListener() {
                     @Override
