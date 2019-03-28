@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -46,6 +48,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 	public int random;
 	public int attemptsRemaining;
     public JSONArray jsonArrayShapeColor = new JSONArray();
+    Context context=this;
 
 
 
@@ -206,5 +209,14 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
         return ;
         }
+    public void insertScore(String name, Integer score)
+    {
+        userDbHelper dbHelper= new userDbHelper(context);
+        SQLiteDatabase db= dbHelper.getWritableDatabase();
+        dbHelper.addScoreInformation(name,score,db);
+
+    }
+
+
 }
 
