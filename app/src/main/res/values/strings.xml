@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">FocusPokus</string>
+    <string name="topscore">Top Scores</string>
     <string name="gamePlay">Match object similar to target object. Select correct color and shape.</string>
     <string name="arrow"> --> </string>
     <string name="step2">You have 3 attempts per game. \nChoose game timer options from settings. \n\nView Top Scores in the main menu.</string>
     <string name="tryitout">Try it out!</string>
     <string name="back">Back</string>
     <string name="correct">Correct!</string>
+    <string name="ok">OK</string>
+    <string name="leaving">Leaving us !</string>
+    <string name="exitQues">Do you want to exit?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="howtoplay">How to play:</string>
+    <string name="next">Next</string>
+    <string name="setting">Settings</string>
+    <string name="soundeffects">Sound Effects</string>
+    <string name="Vibration">Vibration</string>
+    <string name="Music">Music</string>
+    <string name="buttonplay">How to play</string>
 </resources>

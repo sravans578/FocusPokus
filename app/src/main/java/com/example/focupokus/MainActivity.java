@@ -2,9 +2,11 @@ package com.example.focupokus;
 import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Vibrator;
 import android.os.CountDownTimer;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,13 +29,18 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
 //defining shapes for the grid
-int shapes[] = {R.drawable.ic_circle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
-int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
-
+//int shapes[] = {R.drawable.ic_arrow_down_filled_triangle, R.drawable.ic_diamond, R.drawable.ic_hexagon, R.drawable.ic_pointed_star, R.drawable.ic_night_moon_phase};
+    static final int NO_OF_IMAGES=100;
+    int shapes[] = new int[NO_OF_IMAGES];
+//    int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
+    //colors from drawable resource
+    int colors[]={R.color.alienArmpit,R.color.denimBlue,R.color.grasshopperGreen,R.color.radicalRed};
 
     ArrayList<Integer> shapeResult = new ArrayList<Integer>();
     ArrayList<Integer> colorResult = new ArrayList<Integer>();
@@ -51,15 +58,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 	public int random;
 	public static int attemptsRemaining;
     public JSONArray jsonArrayShapeColor = new JSONArray();
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        setContentView(R.layout.activity_main);
-    }
-
-
-
+    Context context=this;
 
 
     @Override
@@ -119,6 +118,12 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 					}
             }
         };
+        for (int iIndex=0; iIndex < NO_OF_IMAGES; iIndex++){
+            String image = "image_"+iIndex;
+            Resources resources = getApplicationContext().getResources();
+            final int resImage = resources.getIdentifier(image,"drawable",getApplicationContext().getPackageName());
+            shapes[iIndex]= resImage;
+        }
 
         //creating json array of shapes and colors
         try {
@@ -255,6 +260,8 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
             target = new Random().nextInt(shapeSet.size());
             random = target;
             list = new ArrayList<>(shapeSet);
+            Log.i("list",""+list);
+            //setting the target object
             targetView.setImageResource(list.get(target).getInt("shape"));
             targetView.setColorFilter(list.get(target).getInt("color"));
 
@@ -265,5 +272,14 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
 
         return ;
         }
+    public void insertScore(String name, Integer score)
+    {
+        userDbHelper dbHelper= new userDbHelper(context);
+        SQLiteDatabase db= dbHelper.getWritableDatabase();
+        dbHelper.addScoreInformation(name,score,db);
+
+    }
+
+
 }
 
