@@ -22,14 +22,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Vibrator;
-
+import android.widget.ListView;
+import android.widget.ArrayAdapter;
+import android.database.sqlite.SQLiteDatabase;
+import java.util.ArrayList;
+import android.content.Context;
 public class start extends AppCompatActivity {
     private Button playButton, settingsButton,rulesButton, yesButton, noButton, nextButton, okButton;
     private Vibrator myVib;
     private ImageView imgCancel,imgClose,icCancel, cancel;
     private LinearLayout settingLayout,linSample;
     private TextView tvContent,tvCorrect;
-
+    private ListView scoreList;
+    Context context=this;
+    private ScoreAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,6 +142,13 @@ public class start extends AppCompatActivity {
 
         cancel = sdialog.findViewById(R.id.Cancel);
         okButton = sdialog.findViewById(R.id.okButton);
+        scoreList=sdialog.findViewById(R.id.lvScores);
+
+        ArrayList <UserScoreBean> topScoreList = getTopScore();
+        adapter = new ScoreAdapter(this, R.layout.activity_topscore, topScoreList);
+        scoreList.setAdapter(adapter);
+
+
 
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +164,17 @@ public class start extends AppCompatActivity {
             }
         });
     }
+
+    public ArrayList<UserScoreBean>  getTopScore()
+    {
+        userDbHelper dbHelper= new userDbHelper(context);
+        SQLiteDatabase db= dbHelper.getWritableDatabase();
+        ArrayList<UserScoreBean> scoreList = dbHelper.getTopScore(db);
+        Log.d("list size","list size"+scoreList.size());
+        return scoreList;
+
+    }
+
 
     public void exit (View view) {
 

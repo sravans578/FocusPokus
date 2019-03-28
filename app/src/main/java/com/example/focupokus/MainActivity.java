@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 	public int random;
 	public int attemptsRemaining;
     public JSONArray jsonArrayShapeColor = new JSONArray();
+    Context context=this;
 
 
     @Override
@@ -216,5 +219,14 @@ public class MainActivity extends AppCompatActivity {
 
         return ;
         }
+    public void insertScore(String name, Integer score)
+    {
+        userDbHelper dbHelper= new userDbHelper(context);
+        SQLiteDatabase db= dbHelper.getWritableDatabase();
+        dbHelper.addScoreInformation(name,score,db);
+
+    }
+
+
 }
 
