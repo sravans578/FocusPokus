@@ -69,6 +69,9 @@ public class start extends AppCompatActivity {
         tvContent = playDialog.findViewById(R.id.tvContent);
         tvCorrect = playDialog.findViewById(R.id.tvCorrect);
         linSample = playDialog.findViewById(R.id.llSample);
+        mPreference= PreferenceManager.getDefaultSharedPreferences(this);
+        meditor=mPreference.edit();
+
 
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +105,7 @@ public class start extends AppCompatActivity {
                         meditor.putBoolean("vibrateSwitchValue",vibrateSwitch.isChecked());
                         vibrateSwitch.setChecked(vibrateSwitch.isChecked());
                         meditor.commit();
-                        
+
 
                     }
                 });
@@ -110,12 +113,9 @@ public class start extends AppCompatActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                        meditor.putBoolean("soundSwitchValue",soundSwitch.isChecked());
+                        meditor.putBoolean("musicSwitchValue",soundSwitch.isChecked());
                         soundSwitch.setChecked(soundSwitch.isChecked());
                         meditor.commit();
-                        boolean isMusic= mPreference.getBoolean("soundSwitchValue",true);
-                        Log.d("boolean", "boolean"+isMusic);
-                        //((start)getActivity()).sound=soundSwitch.isChecked();
 
                     }
                 });
