@@ -2,6 +2,7 @@ package com.example.focupokus;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.graphics.ColorUtils;
 import android.util.Log;
 import android.view.View;
@@ -49,7 +50,7 @@ public class Adapter extends BaseAdapter {
 //        Log.i("----Color",""+gridColors);
 
         Log.i("color","color"+gridColors.get(position));
-
+        //setting the grid images
         shape.setImageResource(gridShapes.get(position));
         shape.setScaleType(ImageView.ScaleType.CENTER_CROP);
         shape.setColorFilter(gridColors.get(position));
