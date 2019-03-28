@@ -46,14 +46,11 @@ public class Adapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView shape = new ImageView(con);
-        Log.i("----Shape",""+gridShapes.get(position));
-//        Log.i("----Color",""+gridColors);
 
-        Log.i("color","color"+gridColors.get(position));
         //setting the grid images
         shape.setImageResource(gridShapes.get(position));
         shape.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        shape.setColorFilter(gridColors.get(position));
+        shape.setColorFilter(ResourcesCompat.getColor(con.getResources(),gridColors.get(position),null));
 
         shape.setLayoutParams(new GridView.LayoutParams(160,160));
 
