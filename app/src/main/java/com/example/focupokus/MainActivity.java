@@ -37,7 +37,7 @@ import android.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
 //defining shapes for the grid
-    static final int NO_OF_IMAGES=100;
+    static final int NO_OF_IMAGES=394;
     int shapes[] = new int[NO_OF_IMAGES];
     int colors[]={R.color.colorAccent, R.color.colorYellow,R.color.yellowSunshine,R.color.fieryRose,R.color.orange_red,R.color.red,R.color.tan,R.color.medium_violet_red,R.color.light_blue,R.color.lime,R.color.deep_sky_blue};
 
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         final  CountDownTimer timer = new CountDownTimer(10000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                et.setText("Time remaining: " + millisUntilFinished / 1000 );
+                et.setText("Time Left: " + millisUntilFinished / 1000 );
             }
 
             public void onFinish() {
@@ -120,12 +120,12 @@ public class MainActivity extends AppCompatActivity {
                     //attemptsRemaining = 3;
 
                     score_card.setText("Score: " + score);
-                    insertScore("Gaygan",score);
+                    insertScore("Gagan",score);
                     score = 0;
                     et.setText("Better luck next time!"); }
                 else
                 { attemptsRemaining--;
-                atr.setText("Attempts remaining : " + attemptsRemaining);
+                atr.setText("Lives : " + attemptsRemaining);
                 this.start();
 					}
             }
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                                     wrongSound.start();
                                 }
                                 attemptsRemaining = (attemptsRemaining) - 1;
-                                atr.setText("Attempts remaining : " + (attemptsRemaining ));
+                                atr.setText("Lives : " + (attemptsRemaining ));
                                // atr.setText(attemptsRemaining);
                                 if(attemptsRemaining == 0)
                                 {   et.setText("Better luck next time !!");
