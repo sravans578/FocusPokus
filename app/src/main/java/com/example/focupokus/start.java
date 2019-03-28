@@ -24,9 +24,9 @@ import android.widget.Toast;
 import android.os.Vibrator;
 
 public class start extends AppCompatActivity {
-    private Button playButton, settingsButton,rulesButton, yesButton, noButton, nextButton;
+    private Button playButton, settingsButton,rulesButton, yesButton, noButton, nextButton, okButton;
     private Vibrator myVib;
-    private ImageView imgCancel,imgClose,icCancel;
+    private ImageView imgCancel,imgClose,icCancel, cancel;
     private LinearLayout settingLayout,linSample;
     private TextView tvContent,tvCorrect;
 
@@ -126,6 +126,30 @@ public class start extends AppCompatActivity {
         tvCorrect.setText(R.string.tryitout);
         linSample.setVisibility(View.GONE);
         nextButton.setText("OK");
+    }
+
+    public void showTopScore(View v)
+    {
+        final Dialog sdialog = new Dialog(start.this);
+        sdialog.setContentView(R.layout.activity_topscore);
+        sdialog.show();
+
+        cancel = sdialog.findViewById(R.id.Cancel);
+        okButton = sdialog.findViewById(R.id.okButton);
+
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sdialog.cancel();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sdialog.cancel();
+            }
+        });
     }
 
     public void exit (View view) {
