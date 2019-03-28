@@ -110,7 +110,8 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                     //attemptsRemaining = 3;
 
                     score_card.setText("Score: " + score);
-                    et.setText("Better luck next time!");}
+                    score = 0;
+                    et.setText("Better luck next time!"); }
                 else
                 { attemptsRemaining--;
                 atr.setText("Attempts remaining : " + attemptsRemaining);
@@ -200,7 +201,7 @@ int colors[] = {Color.RED,Color.BLUE,Color.MAGENTA,Color.YELLOW};
                                     });
 
                                     }
-                            Toast.makeText(getApplicationContext()," " + attemptsRemaining,Toast.LENGTH_LONG).show();
+                           // Toast.makeText(getApplicationContext()," " + attemptsRemaining,Toast.LENGTH_LONG).show();
                                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                                 getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
                                 v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);

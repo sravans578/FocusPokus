@@ -59,7 +59,7 @@
                     android:layout_height="70dp"
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/home"
+                    android:background="@drawable/startfinal"
                     android:fontFamily="@font/spring"
                     android:textColor=  "#000000"
                     />
@@ -73,7 +73,7 @@
                     android:layout_height="70dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp"
-                    android:background="@drawable/restart"
+                    android:background="@drawable/reload"
                     android:fontFamily="@font/spring"
                     android:textColor="#000000"
                    />
