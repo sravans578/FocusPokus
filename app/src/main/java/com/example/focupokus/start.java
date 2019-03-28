@@ -113,7 +113,7 @@ public class start extends AppCompatActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                        meditor.putBoolean("musicSwitchValue",soundSwitch.isChecked());
+                        meditor.putBoolean("musicSwitchValue",musicSwitch.isChecked());
                         soundSwitch.setChecked(soundSwitch.isChecked());
                         meditor.commit();
 

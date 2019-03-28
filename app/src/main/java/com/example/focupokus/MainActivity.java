@@ -27,6 +27,8 @@ import java.util.Iterator;
 import java.util.Set;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -54,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
 	public int attemptsRemaining;
     public JSONArray jsonArrayShapeColor = new JSONArray();
     Context context=this;
+    private SharedPreferences mPreference;
+    private SharedPreferences.Editor meditor;
+    private boolean isMusic;
+    private boolean isVibrate;
+    private boolean isSound;
+
 
 
     @Override
@@ -76,7 +84,11 @@ public class MainActivity extends AppCompatActivity {
 
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
         mediaPlayer.setLooping(true);
-        boolean isMusic=true;
+        mPreference= PreferenceManager.getDefaultSharedPreferences(this);
+        isMusic= mPreference.getBoolean("musicSwitchValue",true);
+        isSound= mPreference.getBoolean("soundSwitchValue",true);
+        isVibrate= mPreference.getBoolean("vibrateSwitchValue",true);
+
 			if(isMusic) {
 				mediaPlayer.start();}
 				vibrateEffect = (Vibrator)getApplicationContext().getSystemService(VIBRATOR_SERVICE);
@@ -138,9 +150,13 @@ public class MainActivity extends AppCompatActivity {
                             String match = shapeResult.get(random).toString()+ colorResult.get(random).toString();
                             String to_match = shapeResult.get(position).toString()+ colorResult.get(position).toString();
 
-                            if (match.equals(to_match)) {
+                            if (match.equals(to_match))
+                            {
                                 score++;
-                                correctSound.start();
+                                if(isSound)
+                                {
+                                    correctSound.start();
+                                }
                                 grid.setAdapter(null);
                                 shapeResult.clear();
                                 colorResult.clear();
@@ -149,15 +165,22 @@ public class MainActivity extends AppCompatActivity {
 
                             }
                             else
-                            {wrongSound.start();
+                            {
+                                if(isSound)
+                                {
+                                    wrongSound.start();
+                                }
                                 attemptsRemaining = (attemptsRemaining) - 1;
                                 if(attemptsRemaining == 0)
                                 {timer.onFinish();}
-                            Toast.makeText(getApplicationContext()," " + attemptsRemaining,Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext()," " + attemptsRemaining,Toast.LENGTH_LONG).show();
                                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                                 getWindow().getDecorView().performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
                                 v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-                                vibrateEffect.vibrate(200);
+                                if(isVibrate)
+                                {
+                                    vibrateEffect.vibrate(200);
+                                }
 
                             }
                             String score_1 = "Score : " + score;
