@@ -2,15 +2,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#FF0048</color>
     <color name="colorYellow" tools:ignore="MissingDefaultResource">#FFC107</color>
-    <color name="radicalRed">#FF355E</color>
-    <color name="outrageousOrange">#FF6037</color>
-    <color name="alienArmpit">#84DE02</color>
     <color name="yellowSunshine">#FFF700</color>
     <color name="fieryRose">#FF5470</color>
-    <color name="denimBlue">#2243B6</color>
-    <color name="teal">#00CCCC</color>
-    <color name="grasshopperGreen">#299617</color>
-
+    <color name="orange_red">#FF4500</color>
+    <color name="red">#03A9F4</color>
+    <color name="tan">#F8F4ED</color>
+    <color name="medium_violet_red">#E91E63</color>
+    <color name="light_blue">#9C27B0</color>
+    <color name="lime">#00FF00</color>
+    <color name="deep_sky_blue">#0055FF</color>
 </resources>
