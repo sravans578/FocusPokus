@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     //attemptsRemaining = 3;
 
                     score_card.setText("Score: " + score);
+                    insertScore("Gaygan",score);
                     score = 0;
                     et.setText("Better luck next time!"); }
                 else
@@ -178,6 +179,8 @@ public class MainActivity extends AppCompatActivity {
                                 {   et.setText("Better luck next time !!");
                                     timer.onFinish();
                                     game_over.show();
+
+
 
                                     go_home.setOnClickListener(new View.OnClickListener() {
                                         @Override
