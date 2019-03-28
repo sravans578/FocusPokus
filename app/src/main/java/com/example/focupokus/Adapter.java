@@ -50,7 +50,7 @@ public class Adapter extends BaseAdapter {
         //setting the grid images
         shape.setImageResource(gridShapes.get(position));
         shape.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        shape.setColorFilter(gridColors.get(position));
+        shape.setColorFilter(ResourcesCompat.getColor(con.getResources(),gridColors.get(position),null));
 
         shape.setLayoutParams(new GridView.LayoutParams(160,160));
 
