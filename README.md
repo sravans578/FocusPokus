@@ -5,7 +5,7 @@
 # &nbsp;&nbsp;&nbsp;**FocusPokus**
 <br /><br />
   
-## Contributors
+## Team FocusPokus
 |Name|BannerID |
 |--|--|
 | *Ami Trivedi* | B00828817 |
