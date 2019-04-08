@@ -126,7 +126,7 @@ We are currently working on improving the User interface and User experience of 
 <br/>
 
 
-## Individulal Contributions
+## Individual Contributions
 The following table depicts the task distribution and current progress of the project.  <br /><br />
 ![Individual Contribution](Extra/Table_of_Individual_Contribution.PNG/ "Individual Contributions")
 <br/>
