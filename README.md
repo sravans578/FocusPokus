@@ -71,7 +71,7 @@ The following table depicts the task distribution and current progress of the pr
 ![Individual Contribution](Extra/Table_of_Individual_Contribution.PNG/ "Individual Contributions")
 
 
-## Problem and Solutions
+## Problems and Solutions
 1. **GridView vs AndroidCanvas** <br/>
 Refreshing and updating the grid was a challenging task. AndroidCanvas was initially used to render objects on the screen, but this did not refresh the grid as per our requirement. Therefore, GridView was used. This refreshes the screen and displays the new grid without any delay.<br/><br/>
     ```
@@ -110,33 +110,8 @@ The task of retrieving values of toggle buttons into the main java file from mul
     isVibrate= mPreference.getBoolean("vibrateSwitchValue",true);
     ...
     ```
-<br/>
+<br/><br/>
 
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
 
 ## References
 1. https://dillinger.io/
