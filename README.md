@@ -3,6 +3,8 @@
 <br />
 
 # &nbsp;&nbsp;&nbsp;**FocusPokus**
+**FocusPokus**, the Android application we developed as a part of the Mobile Computing project-work, is a minimalistic yet captivating game that aims at inculcating cognitive skills.
+
 <br /><br />
   
 ## Team FocusPokus
