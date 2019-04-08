@@ -61,14 +61,14 @@ Used to set count-down time for the game. On completion of defined time, timer s
 
 ## Functionality
 There has been no change in the functionality from the estimated proposal. All the features of minimum and expected functionality have been implemented successfully. Moreover, we were able to achieve one of the bonus features i.e., implementation of the top scores.
-<br />
+<br /><br />
 We are currently working on improving the User interface and User experience of the application.<br />
 
 ![Functionalities implemented](Extra/Table_of_Fx.PNG/ "Functionality")
 
 
 ## Individulal Contributions
-The following table depicts the task distribution and current progress of the project.  <br />
+The following table depicts the task distribution and current progress of the project.  <br /><br />
 ![Individual Contribution](Extra/Table_of_Individual_Contribution.PNG/ "Individual Contributions")
 
 
