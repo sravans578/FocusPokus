@@ -1,8 +1,8 @@
-<img align="right" width="120" height="120" src="Extra/focus.png">
+<img align="right" width="200" height="200" src="Extra/focus.png">
 
 <br />
 
-# &nbsp;&nbsp;&nbsp;**FocusPokus**
+# **FocusPokus**
 **FocusPokus**, the Android application we developed as a part of the Mobile Computing project-work, is a minimalistic yet captivating game that aims at inculcating cognitive skills.
 
 <br /><br />
@@ -22,8 +22,6 @@
 ***Note:*** Drop a mail to [Gaganpreet Singh](gaganpreet.singh@dal.ca) to gain access to git Repository.<br /><br />
 
 ## Project Summary
-**FocusPokus**, the Android application developed as a part of the Mobile Computing project-work, is a minimalistic yet captivating game that aims at inculcating cognitive skills.
-
 FocusPokus appeals to those who enjoy games that are engaging and captivating. The game has objects with complex shapes and colors that vary with time. FocusPokus requires simple actions that enable even a naïve user to play easily.
 
 An important characteristic of this game is that it can be played even without an active internet connection, thus making it a standalone application. This game is intended for age 5 and up. The features of this application are:
