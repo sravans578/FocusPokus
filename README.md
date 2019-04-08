@@ -71,13 +71,13 @@ The following table depicts the task distribution and current progress of the pr
 ![Functionalities implemented](Extra/Table_of_Individual_Contribution.PNG/ "Functionality")
 
 ## Problem and Solutions
-1. **GridView vs AndroidCanvas** <br/>
+1. **GridView vs AndroidCanvas**
 Refreshing and updating the grid was a challenging task. AndroidCanvas was initially used to render objects on the screen, but this did not refresh the grid as per our requirement. Therefore, GridView was used. This refreshes the screen and displays the new grid without any delay.
 
-2. **Object Creation on Grid** <br/> 
+2. **Object Creation on Grid**
 Initially, simple shapes from Android library were used like Square, Circle, Pentagon, and so on. We identified a method to combine custom images(png format) with custom colors. Firstly, we implemented dynamic loading of png images from drawable resource. Secondly, we combined the custom colors with these images using ResourcesCompat function.
 
-3. **Toggle Option in Settings Menu** <br/>
+3. **Toggle Option in Settings Menu**
 The task of retrieving values of toggle buttons into the main java file from multiple XML files was a challenge. The option chosen by the user was not saved in our application. Therefore, we used SharedPreferences interface. The options selected by the user are saved in key-value pairs and stored locally. This enables us to view and access the toggle selections made across all java classes.
 
 
