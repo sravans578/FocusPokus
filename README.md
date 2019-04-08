@@ -1,7 +1,10 @@
-<img align="left" width="150" height="150" src="https://lh3.googleusercontent.com/V5baaVxMdRdwVQA84teFeqqF3NO22-81R-o7xqEL3MkxJuvtbHMl4LPWEuXHat8PZj1Hp5ce0va7Uw">
+<img align="left" width="120" height="120" src="https://lh3.googleusercontent.com/V5baaVxMdRdwVQA84teFeqqF3NO22-81R-o7xqEL3MkxJuvtbHMl4LPWEuXHat8PZj1Hp5ce0va7Uw">
 
-# &nbsp;&nbsp;&nbsp;FocusPokus
+<br />
 
+# &nbsp;&nbsp;&nbsp;**FocusPokus**
+<br /><br />
+  
 ## Contributors
 |Name|BannerID |
 |--|--|
@@ -10,11 +13,11 @@
 | *Sravan Sajeev* | B00825856 |
 | *Meghna Ramachandra Holla* | B00812604  |
 | *Gaganpreet Singh* | B00819217|
-
+<br />
 
 ## GitLab
-[Click here](https://git.cs.dal.ca/singh1/focuspokus.git) to go to GitLab Repository.
-***Note:*** Drop a mail to [Gaganpreet Singh](gaganpreet.singh@dal.ca) to gain access to git Repository.
+[Click here](https://git.cs.dal.ca/singh1/focuspokus.git) to go to GitLab Repository.<br />
+***Note:*** Drop a mail to [Gaganpreet Singh](gaganpreet.singh@dal.ca) to gain access to git Repository.<br /><br />
 
 ## Project Summary
 **FocusPokus**, the Android application developed as a part of the Mobile Computing project-work, is a minimalistic yet captivating game that aims at inculcating cognitive skills.
@@ -28,6 +31,7 @@ An important characteristic of this game is that it can be played even without a
 + No account creation for the purpose of playing the game (no Internet connection needed)
 + Meaningful onboarding information for the first-time users
 + Keep track of past scores
+<br /><br />
 
 ## Create files and folders
 
