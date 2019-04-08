@@ -35,27 +35,29 @@ An important characteristic of this game is that it can be played even without a
 
 ## Libraries
 The following libraries were used while developing focusPokus:<br />
+
 1. **java.util.Random** <br />
-This class instance can be used to generate random numbers. Source [here](https://developer.android.com/reference/java/util/Random)
+Used to generate random numbers. Source [here](https://developer.android.com/reference/java/util/Random)
  
-1. **android.media.MediaPlayer** <br />
-MediaPlayer class can be used to control variety of media types and to integrate audio, video and images in to application. Source [here](https://developer.android.com/guide/topics/media/mediaplayer)
+2. **android.media.MediaPlayer** <br />
+Used to control variety of media types and to integrate audio, video and images into application. Source [here](https://developer.android.com/guide/topics/media/mediaplayer)
  
-1. **android.view.HapticFeedbackConstants** <br />
-This constant can be used to perform haptic feedback effects on click event. Source [here](https://developer.android.com/reference/android/view/HapticFeedbackConstants)
+3. **android.view.HapticFeedbackConstants** <br />
+Used to perform haptic feedback effects on click event. Source [here](https://developer.android.com/reference/android/view/HapticFeedbackConstants)
  
-1. **android.database.sqlite.SQLiteDatabase** <br />
-SQLiteDatabase provide methods to create, delete and update SQL commands for  application. It also  perform other common database management tasks. Source [here](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase)
+4. **android.database.sqlite.SQLiteDatabase** <br />
+Provides methods to create, delete, update SQL commands, and other common database management tasks. Source [here](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase)
 
-1. **android.content.SharedPreferences** <br />
-SharedPreference can be used to save small collection of key-value in application as local data. A SharedPreferences object also provides simple methods to read and write key-value data. Source [here](https://developer.android.com/training/data-storage/shared-preferences)
+5. **android.content.SharedPreferences** <br />
+Used to store small collection of data in key-value pairs locally and read/write this data. Source [here](https://developer.android.com/training/data-storage/shared-preferences)
 
-1. **android.os.Vibrator** <br />
-This class control vibrate  effect on the device. If application process exits, vibration effect will stop. Source [here](https://developer.android.com/reference/android/os/Vibrator)
+6. **android.os.Vibrator** <br />
+Controls vibration  effect on the device. On exiting the application, vibration effect stops. Source [here](https://developer.android.com/reference/android/os/Vibrator)
 
-1. **android.os.CountDownTimer** <br />
-This class is used to set count down time in application and it will stop after completion of defined time. Source [here](https://developer.android.com/reference/android/os/CountDownTimer)
+7. **android.os.CountDownTimer** <br />
+Used to set count-down time for the game. On completion of defined time, timer stops running. Source [here](https://developer.android.com/reference/android/os/CountDownTimer)
 <br /><br />
+
 
 ## Functionality
 There has been no change in the functionality from the estimated proposal. All the features of minimum and expected functionality have been implemented successfully. Moreover, we were able to achieve one of the bonus features i.e., implementation of the top scores.
