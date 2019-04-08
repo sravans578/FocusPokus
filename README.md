@@ -65,7 +65,8 @@ We are currently working on improving the User interface and User experience of 
 <img width="623" height="425" src="Extra/Table_of_Fx.PNG">
 
 ## Individulal Contributions
-![Functionalities implemented](Extra/ "Functionality")
+The following table depicts the task distribution and current progress of the project.  
+![Functionalities implemented](Extra/Table_of_Individual_Contribution.PNG/ "Functionality")
 ## UML diagrams
 
 You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
