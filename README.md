@@ -122,7 +122,12 @@ The following table depicts the task distribution and current progress of the pr
 <br/>
 <br/>
 
+## Screenshots
+<img align="left"src="Extra/Picture1.png">
+<img align="right"src="Extra/Picture2.png">
 
+<br/>
+<br/>
 ## References
 1. Android working with SVG / vector drawables. (2017, July 12). Retrieved from https://www.androidhive.info/2017/02/android-working-svg-vector-drawables/
 2. Dialogs  |  Android Developers. (n.d.). Retrieved from https://developer.android.com/guide/topics/ui/dialogs.html
