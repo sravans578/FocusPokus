@@ -114,10 +114,12 @@ The task of retrieving values of toggle buttons into the main java file from mul
 
 
 ## References
-1. https://dillinger.io/
-2. https://www.androidhive.info/2017/02/android-working-svg-vector-drawables/
-3. https://developer.android.com/guide/topics/ui/dialogs.html
-4. https://developer.android.com/reference/android/widget/Switch
-5. https://pixabay.com/vectors/error-button-failure-warning-24842/
-6. https://www.iconsdb.com/blue-icons/hexagon-icon.html
-7. https://game-icons.net/1x1/delapouite/ribbon-medal.html
+1. Android working with SVG / vector drawables. (2017, July 12). Retrieved from https://www.androidhive.info/2017/02/android-working-svg-vector-drawables/
+2. Dialogs  |  Android Developers. (n.d.). Retrieved from https://developer.android.com/guide/topics/ui/dialogs.html
+3. Random  |  Android Developers. (2019). Retrieved from https://developer.android.com/reference/java/util/Random
+4. Android Developers. (2019). Switch  |  Android Developers. Available at: https://developer.android.com/reference/android/widget/Switch.
+5. Pixabay.com. (2019). Free Image on Pixabay - Error, Button, Failure, Warning. [online] Available at: https://pixabay.com/vectors/error-button-failure-warning-24842.
+6. Network, S. (2019). Blue hexagon icon - Free blue shape icons. Iconsdb.com. Available at: https://www.iconsdb.com/blue-icons/hexagon-icon.html
+7. Game-icons.net. (2019). Ribbon medal icon | Game-icons.net. Available at: https://game-icons.net/1x1/delapouite/ribbon-medal.html
+8. ResourcesCompat  |  Android Developers. (2019). Retrieved from https://developer.android.com/reference/android/support/v4/content/res/ResourcesCompat
+9. 
