@@ -29,12 +29,22 @@ The main purpose of this application is to develop cognitive skills like hand-ey
 <br /><br />
 ## Features
 The features of this application are:
-+ Home page with an attractive and minimalistic design 
-+ Using SharedPreferences for storing user choice throughout the application lifecycle  
-+ Interesting music choice for engrossing player attention
-+ No account creation for the purpose of playing the game (no Internet connection needed)
-+ Meaningful onboarding information for the first-time users
-+ Keep track of past scores
+1. **Home page with an attractive and minimalistic design** <br/>
+FocusPokus has a homepage which is simple yet attractive. The focus here is to break the language barrier by providing an interface with minimal texts and simple icons so that the application is able to cater to a wider range of audience.
+2. **Local storage for saving user preferences** <br/>
+We have used SharedPreferences for storing user preferences such as for enabling sound, vibration and so on. This allows us to store user preferences in the form of (key,value) pair locally.
+3. **Sound effects** <br/>
+FocusPokus uses sound effects on gameplay for engrossing player attention. This includes sounds corresponding to the choices (Right or wrong) that a user makes while playing the game.  
+4. **Offline gameplay** <br/>
+FocusPokus is an on-the-go game that does not require any online account creation for playing the game. Player profiles are managed locally avoiding the need for an active internet connection to play the game.
+5. **Dedicated how to play section** <br/>
+Meaningful onboarding information for the first-time users are provided in the 'how to play' section in the settings menu. This section uses simple images and arrows to explain the gamepaly to the users.
+6. **Local storage of game scores** <br/>
+Game scores are maintained locally and are sorted based on the score in the high scores section of the game. High score section displays scores with respect to the player sorted on the basis of score.
+7. **On-screen popups** <br/>
+FocusPokus displays important messages using pop-up screens such as for displaying game-over alert and menu items.
+8. **Extensive collection of objects used for gameplay** <br/>
+Focuspokus uses over 349 distinct objects and over 12 colours to generate images used for gameplay. In addition to this, we have also made sure that objects once displayed are not displayed again repeatedly so as to maintain the difficulty of teh gameplay. 
 <br /><br />
 
 ## Libraries
