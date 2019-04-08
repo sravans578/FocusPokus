@@ -109,3 +109,12 @@ A --> C(Round Rect)
 B --> D{Rhombus}
 C --> D
 ```
+
+##References
+1. https://dillinger.io/
+2. https://www.androidhive.info/2017/02/android-working-svg-vector-drawables/
+3. https://developer.android.com/guide/topics/ui/dialogs.html
+4. https://developer.android.com/reference/android/widget/Switch
+5. https://pixabay.com/vectors/error-button-failure-warning-24842/
+6. https://www.iconsdb.com/blue-icons/hexagon-icon.html
+7. https://game-icons.net/1x1/delapouite/ribbon-medal.html
