@@ -38,28 +38,27 @@ An important characteristic of this game is that it can be played even without a
 ## Libraries
 The following libraries were used while developing focusPokus:<br />
 
-1. **java.util.Random** <br />
+1. **`java.util.Random`**:
 Used to generate random numbers. Source [here](https://developer.android.com/reference/java/util/Random)
  
-2. **android.media.MediaPlayer** <br />
+2. **`android.media.MediaPlayer`**:
 Used to control variety of media types and to integrate audio, video and images into application. Source [here](https://developer.android.com/guide/topics/media/mediaplayer)
  
-3. **android.view.HapticFeedbackConstants** <br />
+3. **`android.view.HapticFeedbackConstants`**:
 Used to perform haptic feedback effects on click event. Source [here](https://developer.android.com/reference/android/view/HapticFeedbackConstants)
  
-4. **android.database.sqlite.SQLiteDatabase** <br />
+4. **`android.database.sqlite.SQLiteDatabase`**:
 Provides methods to create, delete, update SQL commands, and other common database management tasks. Source [here](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase)
 
-5. **android.content.SharedPreferences** <br />
+5. **`android.content.SharedPreferences`**:
 Used to store small collection of data in key-value pairs locally and read/write this data. Source [here](https://developer.android.com/training/data-storage/shared-preferences)
 
-6. **android.os.Vibrator** <br />
+6. **`android.os.Vibrator`**:
 Controls vibration  effect on the device. On exiting the application, vibration effect stops. Source [here](https://developer.android.com/reference/android/os/Vibrator)
 
-7. **android.os.CountDownTimer** <br />
+7. **`android.os.CountDownTimer`**:
 Used to set count-down time for the game. On completion of defined time, timer stops running. Source [here](https://developer.android.com/reference/android/os/CountDownTimer)
 <br /><br />
-
 
 ## Functionality
 There has been no change in the functionality from the estimated proposal. All the features of minimum and expected functionality have been implemented successfully. Moreover, we were able to achieve one of the bonus features i.e., implementation of the top scores.
