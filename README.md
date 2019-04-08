@@ -30,7 +30,7 @@ The main purpose of this application is to develop cognitive skills like hand-ey
 ## Features
 The features of this application are:
 1. **Home page with an attractive and minimalistic design** <br/>
-FocusPokus has a homepage which is simple yet attractive. The focus here is to break the language barrier by providing an interface with minimal texts and simple icons so that the application is able to cater to a wider range of audience.
+FocusPokus has a homepage which is simple yet attractive. The focus here is to break the linguistic barrier by providing an interface with minimal texts and simple icons so that the application is able to cater to a wider range of audience.
 2. **Local storage for saving user preferences** <br/>
 We have used SharedPreferences for storing user preferences such as for enabling sound, vibration and so on. This allows us to store user preferences in the form of (key,value) pair locally.
 3. **Sound effects** <br/>
