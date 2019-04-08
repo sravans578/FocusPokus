@@ -76,13 +76,40 @@ The following table depicts the task distribution and current progress of the pr
 ## Problem and Solutions
 1. **GridView vs AndroidCanvas** <br/>
 Refreshing and updating the grid was a challenging task. AndroidCanvas was initially used to render objects on the screen, but this did not refresh the grid as per our requirement. Therefore, GridView was used. This refreshes the screen and displays the new grid without any delay.
-
+```
+<GridView
+    android:id="@+id/gridView"
+    android:numColumns="auto_fit"
+    android:gravity="center"
+    android:layout_marginTop="250dp"
+    android:layout_marginBottom="30dp"
+    android:clipToPadding="false"
+    android:padding="16dp"
+    android:verticalSpacing="40dp"
+    android:horizontalSpacing="1dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+/>
+```
 2. **Object Creation on Grid**<br/>
-Initially, simple shapes from Android library were used like Square, Circle, Pentagon, and so on. We identified a method to combine custom images(png format) with custom colors. Firstly, we implemented dynamic loading of png images from drawable resource. Secondly, we combined the custom colors with these images using ResourcesCompat function.
-
+Initially, simple shapes from Android library were used like Square, Circle, Pentagon, and so on. We identified a method to combine custom images(png format) with custom colors. Firstly, we implemented dynamic loading of png images from drawable resource. Secondly, we combined the custom colors with these images using ResourcesCompat function.<br/>
+```
+public void onRandomShapeGenerator(JSONArray arrayShapeColor){
+    ...
+    targetView.setImageResource(list.get(target).getInt("shape"));
+    targetView.setColorFilter(ResourcesCompat.getColor(getResources(),list.get(target).getInt("color"),null));
+    ...
+}
+```
 3. **Toggle Option in Settings Menu**<br/>
-The task of retrieving values of toggle buttons into the main java file from multiple XML files was a challenge. The option chosen by the user was not saved in our application. Therefore, we used SharedPreferences interface. The options selected by the user are saved in key-value pairs and stored locally. This enables us to view and access the toggle selections made across all java classes.
-
+The task of retrieving values of toggle buttons into the main java file from multiple XML files was a challenge. The option chosen by the user was not saved in our application. Therefore, we used SharedPreferences interface. The options selected by the user are saved in key-value pairs and stored locally. This enables us to view and access the toggle selections made across all java classes.<br/>
+```
+...
+isMusic= mPreference.getBoolean("musicSwitchValue",true);
+isSound= mPreference.getBoolean("soundSwitchValue",true);
+isVibrate= mPreference.getBoolean("vibrateSwitchValue",true);
+...
+```
 
 
 ## UML diagrams
