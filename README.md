@@ -34,7 +34,7 @@ An important characteristic of this game is that it can be played even without a
 <br /><br />
 
 ## Libraries
-The following libraries were employed while developing focusPokus:<br />
+The following libraries were used while developing focusPokus:<br />
 1. **java.util.Random** <br />
 This class instance can be used to generate random numbers. Source [here](https://developer.android.com/reference/java/util/Random)
  
