@@ -1,4 +1,4 @@
-<img align="left" width="120" height="120" src="https://lh3.googleusercontent.com/V5baaVxMdRdwVQA84teFeqqF3NO22-81R-o7xqEL3MkxJuvtbHMl4LPWEuXHat8PZj1Hp5ce0va7Uw">
+<img align="left" width="120" height="120" src="Extra/focus.png">
 
 <br />
 
