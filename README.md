@@ -1,20 +1,19 @@
-<img align="right" width="200" height="200" src="Extra/focus.png">
-
-<br />
+<img align="right" width="180" height="180" src="Extra/focus.png">
 
 # **FocusPokus**
 **FocusPokus**, the Android application we developed as a part of the Mobile Computing project-work, is a minimalistic yet captivating game that aims at inculcating cognitive skills.
 
-<br /><br />
-  
-## Team FocusPokus
-|Name|BannerID |
+<br />
+
+## Team TechGoons
+|**Name**|**BannerID** |
 |--|--|
 | *Ami Trivedi* | B00828817 |
 | *Bhumi Patel* | B00824756 |
 | *Sravan Sajeev* | B00825856 |
 | *Meghna Ramachandra Holla* | B00812604  |
 | *Gaganpreet Singh* | B00819217|
+
 <br />
 
 ## GitLab
@@ -24,7 +23,12 @@
 ## Project Summary
 FocusPokus appeals to those who enjoy games that are engaging and captivating. The game has objects with complex shapes and colors that vary with time. FocusPokus requires simple actions that enable even a naïve user to play easily.
 
-An important characteristic of this game is that it can be played even without an active internet connection, thus making it a standalone application. This game is intended for age 5 and up. The features of this application are:
+An important characteristic of this game is that it can be played even without an active internet connection, thus making it a standalone application. This game is intended for age 5 and up. People looking for some time off from their mundane tasks and people looking to increase their attentive skills will benefit from this game. 
+
+The main purpose of this application is to develop cognitive skills like hand-eye coordination, concentration and memory. Be it a kid who just wants to play a game or an adult trying to relax, FocusPokus is the one-stop solution for everyone. FocusPokus can be considered as a learning resource for a kid as it stimulates player’s mental ability to match shapes and colors. For an adult, FocusPokus can either be a platform to sharpen the player’s perceptive skills or just a stress-buster application that one can use every day.
+<br /><br />
+## Features
+The features of this application are:
 + Home page with an attractive and minimalistic design 
 + Using SharedPreferences for storing user choice throughout the application lifecycle  
 + Interesting music choice for engrossing player attention
@@ -57,18 +61,6 @@ Controls vibration  effect on the device. On exiting the application, vibration 
 7. **`android.os.CountDownTimer`**:
 Used to set count-down time for the game. On completion of defined time, timer stops running. Source [here](https://developer.android.com/reference/android/os/CountDownTimer)
 <br /><br />
-
-## Functionality
-There has been no change in the functionality from the estimated proposal. All the features of minimum and expected functionality have been implemented successfully. Moreover, we were able to achieve one of the bonus features i.e., implementation of the top scores.
-<br /><br />
-We are currently working on improving the User interface and User experience of the application.<br />
-
-![Functionalities implemented](Extra/Table_of_Fx.PNG/ "Functionality")
-
-
-## Individulal Contributions
-The following table depicts the task distribution and current progress of the project.  <br /><br />
-![Individual Contribution](Extra/Table_of_Individual_Contribution.PNG/ "Individual Contributions")
 
 
 ## Problems and Solutions
@@ -110,7 +102,25 @@ The task of retrieving values of toggle buttons into the main java file from mul
     isVibrate= mPreference.getBoolean("vibrateSwitchValue",true);
     ...
     ```
-<br/><br/>
+<br/>
+
+
+
+## Functionality
+There has been no change in the functionality from the estimated proposal. All the features of minimum and expected functionality have been implemented successfully. Moreover, we were able to achieve one of the bonus features i.e., implementation of the top scores.
+<br /><br />
+We are currently working on improving the User interface and User experience of the application.<br />
+
+![Functionalities implemented](Extra/Table_of_Fx.PNG/ "Functionality")
+<br/>
+<br/>
+
+
+## Individulal Contributions
+The following table depicts the task distribution and current progress of the project.  <br /><br />
+![Individual Contribution](Extra/Table_of_Individual_Contribution.PNG/ "Individual Contributions")
+<br/>
+<br/>
 
 
 ## References
