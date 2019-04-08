@@ -125,11 +125,11 @@ The following table depicts the task distribution and current progress of the pr
 ## Screenshots
 | **Label** | **Image** |
 | ------ | ------ |
-| Home Screen | <img align="right" width="324" height="576" src="Extra/Picture1.png"> | 
-| Game Screen | <img align="right" width="324" height="576" src="Extra/Picture2.png"> | 
-| Settings DialogBox | <img align="right" width="324" height="576" src="Extra/Picture3.png"> | 
-| Top Score DialogBox | <img align="right" width="324" height="576" src="Extra/Picture4.png"> | 
-| Exit DialogBox | <img align="right" width="324" height="576" src="Extra/Picture5.png"> | 
+| ***Home Screen*** | <img align="right" width="324" height="576" src="Extra/Picture1.png"> | 
+| ***Game Screen*** | <img align="right" width="324" height="576" src="Extra/Picture2.png"> | 
+| ***Settings DialogBox*** | <img align="right" width="324" height="576" src="Extra/Picture3.png"> | 
+| ***Top Score DialogBox*** | <img align="right" width="324" height="576" src="Extra/Picture4.png"> | 
+| ***Exit DialogBox*** | <img align="right" width="324" height="576" src="Extra/Picture5.png"> | 
 
 <br/>
 <br/>
