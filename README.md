@@ -123,14 +123,13 @@ The following table depicts the task distribution and current progress of the pr
 <br/>
 
 ## Screenshots
-| <img align="left"  width="324" height="576" src="Extra/Picture1.png"> | <img align="right" width="324" height="576" src="Extra/Picture2.png"> |
-| ------ | ------ |
-| <img align="left"  width="324" height="576" src="Extra/Picture3.png"> | <img align="right" width="324" height="576" src="Extra/Picture4.png"> |
-| <img align="left"  width="324" height="576" src="Extra/Picture5.png"> | <img align="right" width="324" height="576" src="Extra/Picture6.png"> | 
-
+| <img align="left"  width="324" height="576" src="Extra/Picture1.png"> | <img align="right" width="324" height="576" src="Extra/Picture2.png"> | <img align="left"  width="324" height="576" src="Extra/Picture5.png"> |
+| ------ | ------ | ------ |
+| <img align="left"  width="324" height="576" src="Extra/Picture3.png"> | <img align="right" width="324" height="576" src="Extra/Picture4.png"> |  <img align="right" width="324" height="576" src="Extra/Picture6.png"> | 
 
 <br/>
 <br/>
+
 ## References
 1. Android working with SVG / vector drawables. (2017, July 12). Retrieved from https://www.androidhive.info/2017/02/android-working-svg-vector-drawables/
 2. Dialogs  |  Android Developers. (n.d.). Retrieved from https://developer.android.com/guide/topics/ui/dialogs.html
