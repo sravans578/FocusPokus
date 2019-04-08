@@ -25,7 +25,7 @@ FocusPokus appeals to those who enjoy games that are engaging and captivating. T
 
 An important characteristic of this game is that it can be played even without an active internet connection, thus making it a standalone application. This game is intended for age 5 and up. People looking for some time off from their mundane tasks and people looking to increase their attentive skills will benefit from this game. 
 
-The main purpose of this application is to develop cognitive skills like hand-eye coordination, concentration and memory. Be it a kid who just wants to play a game or an adult trying to relax, FocusPokus is the one-stop solution for everyone. FocusPokus can be considered as a learning resource for a kid as it stimulates player’s mental ability to match shapes and colors. For an adult, FocusPokus can either be a platform to sharpen the player’s perceptive skills or just a stress-buster application that one can use every day.
+The main purpose of this application is to develop cognitive skills like hand-eye coordination, concentration and memory. Be it a kid who just wants to play a game or an adult trying to relax, FocusPokus is the one-stop solution for everyone. FocusPokus can be considered as a learning resource for a kid as it stimulates player’s mental ability to match shapes and colors. FocusPokus can either be a platform to sharpen the player’s perceptive skills or just a stress-buster application that one can use every day.
 <br /><br />
 ## Features
 The features of this application are:
