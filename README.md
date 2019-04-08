@@ -61,8 +61,8 @@ This class is used to set count down time in application and it will stop after 
 There has been no change in the functionality from the estimated proposal. All the features of minimum and expected functionality have been implemented successfully. Moreover, we were able to achieve one of the bonus features i.e., implementation of the top scores.
 <br />
 We are currently working on improving the User interface and User experience of the application.<br />
+<img align="left" width="623" height="425" src="https://lh3.googleusercontent.com/L0i1iTDs4I88n89buzkDeE1r5loQYXDxifTl0uORuGyYaHO21FR9tCgmRGIGaAH83ZTINHtgjuWl4Q">
 
-![Functionalities implemented](https://lh3.googleusercontent.com/L0i1iTDs4I88n89buzkDeE1r5loQYXDxifTl0uORuGyYaHO21FR9tCgmRGIGaAH83ZTINHtgjuWl4Q "Functionality")
 
 ## UML diagrams
 
