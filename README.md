@@ -129,13 +129,6 @@ The following table depicts the task distribution and current progress of the pr
 | <img align="left"  width="324" height="576" src="Extra/Picture5.png"> | <img align="right" width="324" height="576" src="Extra/Picture6.png"> | 
 
 
-
-
-
-.
-.
-.
-
 <br/>
 <br/>
 ## References
