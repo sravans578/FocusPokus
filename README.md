@@ -144,3 +144,5 @@ The following table depicts the task distribution and current progress of the pr
 7. Game-icons.net. (2019). Ribbon medal icon | Game-icons.net. Available at: https://game-icons.net/1x1/delapouite/ribbon-medal.html
 8. ResourcesCompat  |  Android Developers. (2019). Retrieved from https://developer.android.com/reference/android/support/v4/content/res/ResourcesCompat
 9. Resources  |  Android Developers. (2019). Retrieved from https://developer.android.com/reference/android/content/res/Resources
+10. dzone.com (2019) | Compare RESTful vs. SOAP Web Services From Different View [Infographic] - DZone Integration. Available at: https://dzone.com/articles/compare-restful-vs-soap-web-services-by-picture.
+11. Raygun Blog (2019) | SOAP vs REST vs JSON comparison [2019] | Raygun Blog. Available at: https://raygun.com/blog/soap-vs-rest-vs-json/
