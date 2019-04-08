@@ -33,26 +33,29 @@ An important characteristic of this game is that it can be played even without a
 + Keep track of past scores
 <br /><br />
 
-## Create files and folders
+## Libraries
+The following libraries were employed while developing focusPokus:<br />
+1. **java.util.Random** <br />
+This class instance can be used to generate random numbers. Source [here](https://developer.android.com/reference/java/util/Random)
+ 
+1. **android.media.MediaPlayer** <br />
+MediaPlayer class can be used to control variety of media types and to integrate audio, video and images in to application. Source [here](https://developer.android.com/guide/topics/media/mediaplayer)
+ 
+1. **android.view.HapticFeedbackConstants** <br />
+This constant can be used to perform haptic feedback effects on click event. Source [here](https://developer.android.com/reference/android/view/HapticFeedbackConstants)
+ 
+1. **android.database.sqlite.SQLiteDatabase** <br />
+SQLiteDatabase provide methods to create, delete and update SQL commands for  application. It also  perform other common database management tasks. Source [here](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase)
 
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
+1. **android.content.SharedPreferences** <br />
+SharedPreference can be used to save small collection of key-value in application as local data. A SharedPreferences object also provides simple methods to read and write key-value data. Source [here](https://developer.android.com/training/data-storage/shared-preferences)
 
-## Switch to another file
+1. **android.os.Vibrator** <br />
+This class control vibrate  effect on the device. If application process exits, vibration effect will stop. Source [here](https://developer.android.com/reference/android/os/Vibrator)
 
-All your files are listed in the file explorer. You can switch from one to another by clicking a file in the list.
-
-## Rename a file
-
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
-
-## Delete a file
-
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
-
-## Export a file
-
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
-
+1. **android.os.CountDownTimer** <br />
+This class is used to set count down time in application and it will stop after completion of defined time. Source [here](https://developer.android.com/reference/android/os/CountDownTimer)
+<br /><br />
 
 # Synchronization
 
