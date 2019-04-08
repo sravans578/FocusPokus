@@ -122,4 +122,4 @@ The task of retrieving values of toggle buttons into the main java file from mul
 6. Network, S. (2019). Blue hexagon icon - Free blue shape icons. Iconsdb.com. Available at: https://www.iconsdb.com/blue-icons/hexagon-icon.html
 7. Game-icons.net. (2019). Ribbon medal icon | Game-icons.net. Available at: https://game-icons.net/1x1/delapouite/ribbon-medal.html
 8. ResourcesCompat  |  Android Developers. (2019). Retrieved from https://developer.android.com/reference/android/support/v4/content/res/ResourcesCompat
-9. 
+9. Resources  |  Android Developers. (2019). Retrieved from https://developer.android.com/reference/android/content/res/Resources
