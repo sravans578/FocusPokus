@@ -1,4 +1,4 @@
-<img align="left" width="120" height="120" src="Extra/focus.png">
+<img align="right" width="120" height="120" src="Extra/focus.png">
 
 <br />
 
