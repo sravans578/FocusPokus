@@ -44,7 +44,7 @@ Game scores are maintained locally and are sorted based on the score in the high
 7. **On-screen popups** <br/>
 FocusPokus displays important messages using pop-up screens such as for displaying game-over alert and menu items.
 8. **Extensive collection of objects used for gameplay** <br/>
-Focuspokus uses over 349 distinct objects and over 12 colours to generate images used for gameplay. In addition to this, we have also made sure that objects once displayed are not displayed again repeatedly so as to maintain the difficulty of teh gameplay. 
+Focuspokus uses over 349 distinct objects and over 12 colours to generate images used for gameplay. In addition to this, we have also made sure that objects once displayed are not displayed again repeatedly so as to maintain gameplay difficulty.
 <br /><br />
 
 ## Libraries
@@ -156,3 +156,6 @@ The following table depicts the task distribution and current progress of the pr
 9. Resources  |  Android Developers. (2019). Retrieved from https://developer.android.com/reference/android/content/res/Resources
 10. dzone.com (2019) | Compare RESTful vs. SOAP Web Services From Different View [Infographic] - DZone Integration. Available at: https://dzone.com/articles/compare-restful-vs-soap-web-services-by-picture.
 11. Raygun Blog (2019) | SOAP vs REST vs JSON comparison [2019] | Raygun Blog. Available at: https://raygun.com/blog/soap-vs-rest-vs-json/
+12. CountDown Timer  | Android Developers. (n.d). Retrieved from https://developer.android.com/reference/android/os/CountDownTimer
+13. Android Gridview Tutorial- Android Image Gallery  | Nilanchala. (2016, July 12).Retrieved from https://stacktips.com/tutorials/android/android-gridview-example-building-image-gallery-in-android
+14. Android Alert Dialog  | Tutorialspoint.com. (n.d.). Retrieved from https://www.tutorialspoint.com/android/android_alert_dialoges.htm
