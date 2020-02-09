@@ -5,15 +5,6 @@
 
 <br />
 
-## Team TechGoons
-|**Name**|**BannerID** |
-|--|--|
-| *Ami Trivedi* | B00828817 |
-| *Bhumi Patel* | B00824756 |
-| *Sravan Sajeev* | B00825856 |
-| *Meghna Ramachandra Holla* | B00812604  |
-| *Gaganpreet Singh* | B00819217|
-
 <br />
 
 ## GitLab
